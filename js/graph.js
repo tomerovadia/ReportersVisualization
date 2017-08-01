@@ -2,7 +2,7 @@ const d3 = require('d3');
 
 export default (svg, container, width, height) => {
 
-
+  var visualization = container.append('g');
 
   var color = d3.scaleOrdinal(d3.schemeCategory10);
 
@@ -12,6 +12,7 @@ export default (svg, container, width, height) => {
       .force("center", d3.forceCenter(width / 2, height / 2));
 
   d3.json("reporters.json", function(error, graph) {
+
     if (error) throw error;
 
     var defs = svg.append("defs").attr("id", "imgdefs")
@@ -59,20 +60,19 @@ export default (svg, container, width, height) => {
       return d.value > 300 ? 0.5 : 1.5;
     }
 
-    var link = container.append("g")
+    var link = visualization.append("g")
         .attr("class", "links")
       .selectAll("line")
       .data(links)
       .enter().append("line")
         .attr("stroke-width", calculateStrokeWidth());
 
-
-    var nodes = container
-        .selectAll("g")
-        .data(graph.reporters)
-        .enter()
-        .append("g")
-        .attr("class", "nodes")
+    var nodes = visualization
+      .selectAll("g.nodes")
+      .data(graph.reporters)
+      .enter()
+      .append("g")
+      .attr("class", "nodes")
 
     var circles = nodes
         .append("circle")
