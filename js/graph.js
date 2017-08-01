@@ -1,6 +1,8 @@
 const d3 = require('d3');
 
-export default (container, width, height) => {
+export default (svg, container, width, height) => {
+
+
 
   var color = d3.scaleOrdinal(d3.schemeCategory20);
 
@@ -12,18 +14,38 @@ export default (container, width, height) => {
   d3.json("reporters.json", function(error, graph) {
     if (error) throw error;
 
+    var defs = svg.append("defs").attr("id", "imgdefs")
+
+    var patterns = defs.selectAll('pattern')
+                    .data(graph.reporters)
+                    .enter()
+                    .append("pattern")
+                    .attr("id", function(d){ return d.id } )
+                    .attr("height", 1)
+                    .attr("width", 1)
+                    .attr("viewBox", "0 0 100 100")
+                    .attr("preserveAspectRatio", "none")
+                    .attr("x", "0")
+                    .attr("y", "0");
+
+    patterns.append("image")
+          .attr("preserveAspectRatio", "none")
+          .attr("height", 100)
+          .attr("width", 100)
+          .attr("xlink:href", function(d){ return d.img_url})
+
     let samePublicationLinks = [];
     let oldPublicationLinks = [];
 
-    graph.nodes.forEach((reporter1) => {
-      graph.nodes.forEach((reporter2) => {
+    graph.reporters.forEach((reporter1) => {
+      graph.reporters.forEach((reporter2) => {
         if(reporter1.id !== reporter2.id && reporter1.publication === reporter2.publication){
           samePublicationLinks.push({"source": reporter1.id, "target": reporter2.id, "value": 175})
         }
       })
     })
 
-    graph.nodes.forEach((reporter) => {
+    graph.reporters.forEach((reporter) => {
       graph.employments.forEach((employment) => {
         if(reporter.publication === employment.publication){
           oldPublicationLinks.push({"source": reporter.id, "target": employment.reporter, "value": 400})
@@ -47,7 +69,7 @@ export default (container, width, height) => {
 
     var nodes = container
         .selectAll("g")
-        .data(graph.nodes)
+        .data(graph.reporters)
         .enter()
         .append("g")
         .attr("class", "nodes")
@@ -55,15 +77,15 @@ export default (container, width, height) => {
     var circles = nodes
         .append("circle")
           .attr("r", 25)
-          .style("stroke", "black")
           // .attr("fill", function(d) { return color(d.publication); })
-          .attr("fill", '#eee')
+          .style("stroke", function(d) { return color(d.publication); })
+          .attr("fill", function(d){ return `url('#${d.id}')` } )
 
     nodes
           .on("mouseover", function(){
             d3.select(this).select('circle').style("stroke", "yellow")
           })
-          .on("mouseout", function(){ d3.select(this).select('circle').style("stroke", "black")})
+          .on("mouseout", function(){ d3.select(this).select('circle').style("stroke", function(d) { return color(d.publication); })})
 
     nodes
       .call(d3.drag()
@@ -71,18 +93,11 @@ export default (container, width, height) => {
           .on("drag", nodedragged)
           .on("end", nodedragended));
 
-    nodes.append("svg:image")
-        .attr("xlink:href",  function(d) { return d.img_url;})
-        .attr("x", function(d) { return -25;})
-        .attr("y", function(d) { return -25;})
-        .attr("height", 50)
-        .attr("width", 50);
-
     circles.append("title")
         .text(function(d) { return d.id; });
 
     simulation
-        .nodes(graph.nodes)
+        .nodes(graph.reporters)
         .on("tick", ticked);
 
     simulation.force("link")

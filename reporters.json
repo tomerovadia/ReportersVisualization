@@ -1,5 +1,5 @@
 {
-  "nodes": [
+  "reporters": [
     {"id": "Maggie Haberman", "publication": "New York Times", "img_url": "https://dl.dropboxusercontent.com/u/19954023/marvel_force_chart_img/gofgalaxy.png"},
     {"id": "Glenn Thrush", "publication": "New York Times", "img_url": "https://dl.dropboxusercontent.com/u/19954023/marvel_force_chart_img/gofgalaxy.png"},
     {"id": "Shane Goldmacher", "publication": "New York Times", "img_url": "https://dl.dropboxusercontent.com/u/19954023/marvel_force_chart_img/gofgalaxy.png"},
