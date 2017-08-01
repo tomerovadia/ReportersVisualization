@@ -12,12 +12,28 @@ export default (container, width, height) => {
   d3.json("reporters.json", function(error, graph) {
     if (error) throw error;
 
+    let samePublicationLinks = [];
+
+    graph.nodes.forEach((reporter1) => {
+      graph.nodes.forEach((reporter2) => {
+        if(reporter1.id !== reporter2.id && reporter1.group === reporter2.group){
+          samePublicationLinks.push({"source": reporter1.id, "target": reporter2.id, "value": 175})
+        }
+      })
+    })
+
+    let formerPublicationsLinks = [];
+
+    
+
+    let links = Object.assign(samePublicationLinks, graph.links)
+
     var link = container.append("g")
         .attr("class", "links")
       .selectAll("line")
-      .data(graph.links)
+      .data(links)
       .enter().append("line")
-        .attr("stroke-width", function(d) { return Math.sqrt(d.value); });
+        .attr("stroke-width", function(d) { return Math.pow(d.value, 0.1); });
 
     var node = container.append("g")
         .attr("class", "nodes")
@@ -39,7 +55,8 @@ export default (container, width, height) => {
         .on("tick", ticked);
 
     simulation.force("link")
-        .links(graph.links);
+        .links(links)
+        .distance((d) => d.value);
 
     function ticked() {
       link

@@ -2,16 +2,30 @@
   "nodes": [
     {"id": "Maggie Haberman", "group": 1},
     {"id": "Glenn Thrush", "group": 1},
+    {"id": "Shane Goldmacher", "group": 1},
+    {"id": "Jonathan Martin", "group": 1},
+    {"id": "Ken Vogel", "group": 1},
+    {"id": "Peter Baker", "group": 1},
+    {"id": "Elisabeth Bumiller", "group": 1},
+    {"id": "Michael Gordon", "group": 1},
+    {"id": "Mark Mazetti", "group": 1},
+    {"id": "James Risen", "group": 1},
+    {"id": "David E. Sanger", "group": 1},
+    {"id": "Carl Hulse", "group": 1},
+    {"id": "Eric Schmitt", "group": 1},
+    {"id": "Alan Rappeport", "group": 1},
+    {"id": "Anna Dubenko", "group": 1},
+    {"id": "Emily Steel", "group": 1},
+    {"id": "Michael Shear", "group": 1},
+    {"id": "Sewell Chan", "group": 1},
+    {"id": "Kevin Quealy", "group": 1},
+    {"id": "Jeremy W. Peters", "group": 1},
+    {"id": "Chris Cirillo", "group": 1},
     {"id": "Jake Sherman", "group": 2},
-    {"id": "Alex Isenstadt", "group": 2},
-    {"id": "Ken Vogel", "group": 1}
+    {"id": "Alex Isenstadt", "group": 2}
   ],
-  "links": [
-    {"source": "Maggie Haberman", "target": "Glenn Thrush", "value": 8},
-    {"source": "Glenn Thrush", "target": "Maggie Haberman", "value": 8},
-    {"source": "Ken Vogel", "target": "Maggie Haberman", "value": 8},
-    {"source": "Ken Vogel", "target": "Glenn Thrush", "value": 8},
-    {"source": "Jake Sherman", "target": "Glenn Thrush", "value": 1},
-    {"source": "Jake Sherman", "target": "Maggie Haberman", "value": 1}
+  "employments": [
+    {"source": "Jake Sherman", "target": "Glenn Thrush", "value": 300},
+    {"source": "Jake Sherman", "target": "Maggie Haberman", "value": 300}
   ]
 }
