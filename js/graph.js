@@ -45,25 +45,38 @@ export default (container, width, height) => {
         .attr("stroke-width", calculateStrokeWidth());
 
 
+    var nodes = container
+        .selectAll("g")
+        .data(graph.nodes)
+        .enter()
+        .append("g")
+        .attr("class", "nodes")
 
-    var node = container.append("g")
-      .attr("class", "nodes")
-      .selectAll("circle")
-      .data(graph.nodes)
-      .enter().append("circle")
-        .attr("r", 10)
-        .style("stroke", "black")
-        .attr("fill", function(d) { return color(d.publication); })
-        .on("mouseover", function(){
-          d3.select(this).style("stroke", "yellow")
-        })
-        .on("mouseout", function(){ d3.select(this).style("stroke", "black")})
-        .call(d3.drag()
-            .on("start", nodedragstarted)
-            .on("drag", nodedragged)
-            .on("end", nodedragended));
+    var circles = nodes
+        .append("circle")
+          .attr("r", 25)
+          .style("stroke", "black")
+          // .attr("fill", function(d) { return color(d.publication); })
+          .attr("fill", '#eee')
+          .on("mouseover", function(){
+            d3.select(this).style("stroke", "yellow")
+          })
+          .on("mouseout", function(){ d3.select(this).style("stroke", "black")})
+          .call(d3.drag()
+              .on("start", nodedragstarted)
+              .on("drag", nodedragged)
+              .on("end", nodedragended));
 
-    node.append("title")
+    nodes.append("svg:image")
+        .attr("xlink:href",  function(d) { return "https://dl.dropboxusercontent.com/u/19954023/marvel_force_chart_img/gofgalaxy.png";})
+        .attr("x", function(d) { return -25;})
+        .attr("y", function(d) { return -25;})
+        .attr("height", 50)
+        .attr("width", 50);
+
+              // <image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://dl.dropboxusercontent.com/u/19954023/marvel_force_chart_img/gofgalaxy.png" x="-25" y="-25" height="50" width="50"></image>
+
+    circles.append("title")
         .text(function(d) { return d.id; });
 
     simulation
@@ -76,14 +89,17 @@ export default (container, width, height) => {
 
     function ticked() {
       link
-          .attr("x1", function(d) { return d.source.x; })
-          .attr("y1", function(d) { return d.source.y; })
-          .attr("x2", function(d) { return d.target.x; })
-          .attr("y2", function(d) { return d.target.y; });
+        .attr("x1", function(d) { return d.source.x; })
+        .attr("y1", function(d) { return d.source.y; })
+        .attr("x2", function(d) { return d.target.x; })
+        .attr("y2", function(d) { return d.target.y; });
 
-      node
-          .attr("cx", function(d) { return d.x; })
-          .attr("cy", function(d) { return d.y; });
+      nodes
+        .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")" });
+
+      // circles
+      //   .attr("cx", function(d) { return d.x; })
+      //   .attr("cy", function(d) { return d.y; });
     }
   });
 
