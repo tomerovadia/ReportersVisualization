@@ -93,6 +93,7 @@ export default (svg, container, width, height) => {
          .style('font-family', 'Arial')
          .style("font-size", "12px")
          .style("font-weight", "600")
+         .style("text-shadow", "1px 1px 2px white")
          .attr("transform", "translate(-27,42)");
 
     nodes
