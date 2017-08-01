@@ -58,10 +58,12 @@ export default (container, width, height) => {
           .style("stroke", "black")
           // .attr("fill", function(d) { return color(d.publication); })
           .attr("fill", '#eee')
+
+    nodes
           .on("mouseover", function(){
-            d3.select(this).style("stroke", "yellow")
+            d3.select(this).select('circle').style("stroke", "yellow")
           })
-          .on("mouseout", function(){ d3.select(this).style("stroke", "black")})
+          .on("mouseout", function(){ d3.select(this).select('circle').style("stroke", "black")})
 
     nodes
       .call(d3.drag()
@@ -70,13 +72,11 @@ export default (container, width, height) => {
           .on("end", nodedragended));
 
     nodes.append("svg:image")
-        .attr("xlink:href",  function(d) { return "https://dl.dropboxusercontent.com/u/19954023/marvel_force_chart_img/gofgalaxy.png";})
+        .attr("xlink:href",  function(d) { return d.img_url;})
         .attr("x", function(d) { return -25;})
         .attr("y", function(d) { return -25;})
         .attr("height", 50)
         .attr("width", 50);
-
-              // <image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://dl.dropboxusercontent.com/u/19954023/marvel_force_chart_img/gofgalaxy.png" x="-25" y="-25" height="50" width="50"></image>
 
     circles.append("title")
         .text(function(d) { return d.id; });
