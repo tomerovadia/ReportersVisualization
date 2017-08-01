@@ -13,35 +13,51 @@ export default (container, width, height) => {
     if (error) throw error;
 
     let samePublicationLinks = [];
+    let oldPublicationLinks = [];
 
     graph.nodes.forEach((reporter1) => {
       graph.nodes.forEach((reporter2) => {
-        if(reporter1.id !== reporter2.id && reporter1.group === reporter2.group){
+        if(reporter1.id !== reporter2.id && reporter1.publication === reporter2.publication){
           samePublicationLinks.push({"source": reporter1.id, "target": reporter2.id, "value": 175})
         }
       })
     })
 
-    let formerPublicationsLinks = [];
+    graph.nodes.forEach((reporter) => {
+      graph.employments.forEach((employment) => {
+        if(reporter.publication === employment.publication){
+          oldPublicationLinks.push({"source": reporter.id, "target": employment.reporter, "value": 400})
+        }
+      })
+    })
 
-    
+    let links = samePublicationLinks.concat(oldPublicationLinks);
 
-    let links = Object.assign(samePublicationLinks, graph.links)
+    const calculateStrokeWidth = () => (d) => {
+      return d.value > 300 ? 0.5 : 1.5;
+    }
 
     var link = container.append("g")
         .attr("class", "links")
       .selectAll("line")
       .data(links)
       .enter().append("line")
-        .attr("stroke-width", function(d) { return Math.pow(d.value, 0.1); });
+        .attr("stroke-width", calculateStrokeWidth());
+
+
 
     var node = container.append("g")
-        .attr("class", "nodes")
+      .attr("class", "nodes")
       .selectAll("circle")
       .data(graph.nodes)
       .enter().append("circle")
         .attr("r", 10)
-        .attr("fill", function(d) { return color(d.group); })
+        .style("stroke", "black")
+        .attr("fill", function(d) { return color(d.publication); })
+        .on("mouseover", function(){
+          d3.select(this).style("stroke", "yellow")
+        })
+        .on("mouseout", function(){ d3.select(this).style("stroke", "black")})
         .call(d3.drag()
             .on("start", nodedragstarted)
             .on("drag", nodedragged)
@@ -130,7 +146,7 @@ export default (container, width, height) => {
 //     .data(graph.nodes)
 //     .enter().append("circle")
 //       .attr("r", 10)
-//       .attr("fill", function(d) { return color(d.group); })
+//       .attr("fill", function(d) { return color(d.publication); })
 //       .call(d3.drag()
 //           .on("start", dragstarted)
 //           .on("drag", dragged)
