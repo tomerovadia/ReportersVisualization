@@ -62,10 +62,12 @@ export default (container, width, height) => {
             d3.select(this).style("stroke", "yellow")
           })
           .on("mouseout", function(){ d3.select(this).style("stroke", "black")})
-          .call(d3.drag()
-              .on("start", nodedragstarted)
-              .on("drag", nodedragged)
-              .on("end", nodedragended));
+
+    nodes
+      .call(d3.drag()
+          .on("start", nodedragstarted)
+          .on("drag", nodedragged)
+          .on("end", nodedragended));
 
     nodes.append("svg:image")
         .attr("xlink:href",  function(d) { return "https://dl.dropboxusercontent.com/u/19954023/marvel_force_chart_img/gofgalaxy.png";})
