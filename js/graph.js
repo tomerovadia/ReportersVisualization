@@ -4,7 +4,7 @@ export default (svg, container, width, height) => {
 
 
 
-  var color = d3.scaleOrdinal(d3.schemeCategory20);
+  var color = d3.scaleOrdinal(d3.schemeCategory10);
 
   var simulation = d3.forceSimulation()
       .force("link", d3.forceLink().id(function(d) { return d.id; }))
@@ -77,8 +77,8 @@ export default (svg, container, width, height) => {
     var circles = nodes
         .append("circle")
           .attr("r", 25)
-          // .attr("fill", function(d) { return color(d.publication); })
           .style("stroke", function(d) { return color(d.publication); })
+          .style("stroke-width", 3)
           .attr("fill", function(d){ return `url('#${d.id}')` } )
 
     nodes
