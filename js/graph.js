@@ -41,7 +41,7 @@ export default (svg, container, width, height) => {
     graph.reporters.forEach((reporter1) => {
       graph.reporters.forEach((reporter2) => {
         if(reporter1.id !== reporter2.id && reporter1.publication === reporter2.publication){
-          samePublicationLinks.push({"source": reporter1.id, "target": reporter2.id, "value": 175})
+          samePublicationLinks.push({"source": reporter1.id, "target": reporter2.id, "value": 250})
         }
       })
     })
@@ -80,6 +80,14 @@ export default (svg, container, width, height) => {
           .style("stroke", function(d) { return color(d.publication); })
           .style("stroke-width", 3)
           .attr("fill", function(d){ return `url('#${d.id}')` } )
+
+    var reporterNames = nodes
+         .append('text')
+         .text((d) => d.id)
+         .style('font-family', 'Arial')
+         .style("font-size", "12px")
+         .style("font-weight", "600")
+         .attr("transform", "translate(-27,42)");
 
     nodes
           .on("mouseover", function(){
