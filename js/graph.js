@@ -76,7 +76,7 @@ export default (svg, container, width, height) => {
 
     var circles = nodes
         .append("circle")
-          .attr("r", 25)
+          .attr("r", 30)
           .style("stroke", function(d) { return color(d.publication); })
           .style("stroke-width", 3)
           .attr("fill", function(d){ return `url('#${d.id}')` } )
