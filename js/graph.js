@@ -4,7 +4,12 @@ export default (svg, container, width, height) => {
 
   var visualization = container.append('g');
 
-  var color = d3.scaleOrdinal(d3.schemeCategory10);
+  var colors = {
+    "New York Times": "gray",
+    "Politico": "darkred",
+  }
+
+  // var color = d3.scaleOrdinal(d3.schemeCategory10);
 
   var simulation = d3.forceSimulation()
       .force("link", d3.forceLink().id(function(d) { return d.id; }))
@@ -49,7 +54,7 @@ export default (svg, container, width, height) => {
     graph.reporters.forEach((reporter) => {
       graph.employments.forEach((employment) => {
         if(reporter.publication === employment.publication){
-          oldPublicationLinks.push({"source": reporter.id, "target": employment.reporter, "value": 400})
+          oldPublicationLinks.push({"source": reporter.id, "target": employment.reporter, "value": 400, publication: employment.publication})
         }
       })
     })
@@ -57,7 +62,7 @@ export default (svg, container, width, height) => {
     let links = samePublicationLinks.concat(oldPublicationLinks);
 
     const calculateStrokeWidth = () => (d) => {
-      return d.value > 300 ? 0.5 : 1.5;
+      return d.value > 300 ? 0.8 : 1.5;
     }
 
     var link = visualization.append("g")
@@ -65,7 +70,8 @@ export default (svg, container, width, height) => {
       .selectAll("line")
       .data(links)
       .enter().append("line")
-        .attr("stroke-width", calculateStrokeWidth());
+        .attr("stroke-width", calculateStrokeWidth())
+        .style("stroke", (d) => d.value > 300 ? colors[d.publication] : "gray");
 
     var nodes = visualization
       .selectAll("g.nodes")
@@ -77,7 +83,7 @@ export default (svg, container, width, height) => {
     var circles = nodes
         .append("circle")
           .attr("r", 30)
-          .style("stroke", function(d) { return color(d.publication); })
+          .style("stroke", function(d) { return colors[d.publication]; })
           .style("stroke-width", 3)
           .attr("fill", function(d){ return `url('#${d.id}')` } )
 
@@ -93,7 +99,7 @@ export default (svg, container, width, height) => {
           .on("mouseover", function(){
             d3.select(this).select('circle').style("stroke", "yellow")
           })
-          .on("mouseout", function(){ d3.select(this).select('circle').style("stroke", function(d) { return color(d.publication); })})
+          .on("mouseout", function(){ d3.select(this).select('circle').style("stroke", function(d) { return colors[d.publication]; })})
 
     nodes
       .call(d3.drag()
