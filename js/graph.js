@@ -54,7 +54,7 @@ export default (svg, container, width, height) => {
     graph.reporters.forEach((reporter) => {
       graph.employments.forEach((employment) => {
         if(reporter.publication === employment.publication){
-          oldPublicationLinks.push({"source": reporter.id, "target": employment.reporter, "value": 400, publication: employment.publication})
+          oldPublicationLinks.push({"source": reporter.id, "target": employment.reporter, "value": 500, publication: employment.publication})
         }
       })
     })
@@ -117,7 +117,8 @@ export default (svg, container, width, height) => {
 
     simulation.force("link")
         .links(links)
-        .distance((d) => d.value);
+        .distance((d) => d.value)
+        .strength(0.20);
 
     function ticked() {
       link
