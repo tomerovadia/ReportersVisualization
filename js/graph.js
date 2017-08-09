@@ -87,11 +87,11 @@ export default (svg, container, width, height) => {
     // })
 
     graph.reporters.forEach((reporter) => {
-      samePublicationLinks.push({"source": reporter.id, "target": reporter.publication, "value": 125, color: colors[reporter.publication] })
+      samePublicationLinks.push({"source": reporter.id, "target": reporter.publication, "value": 100, color: colors[reporter.publication] })
     })
 
     graph.employments.forEach((employment) => {
-      samePublicationLinks.push({"source": employment.reporter, "target": employment.publication, "value": 300, color: colors[employment.publication] })
+      samePublicationLinks.push({"source": employment.reporter, "target": employment.publication, "value": 250, color: colors[employment.publication] })
     })
 
     let links = samePublicationLinks.concat(oldPublicationLinks);
@@ -117,7 +117,7 @@ export default (svg, container, width, height) => {
 
     var circles = nodes
         .append("circle")
-          .attr("r", 30)
+          .attr("r", 20)
           .style("stroke", function(d) { return colors[d.publication]; })
           .style("stroke-width", 3)
           .attr("fill", function(d){ return `url('#${d.id}')` } )
