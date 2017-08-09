@@ -36,5 +36,9 @@
     {"reporter": "Maggie Haberman", "publication": "Politico", "start": 2010, "end": 2015},
     {"reporter": "Jonathan Martin", "publication": "Politico", "start": 2007, "end": 2013},
     {"reporter": "Alex Burns", "publication": "Politico", "start": 2008, "end": 2014}
+  ],
+  "publications": [
+    {"id": "Politico", "color": "darkred"},
+    {"id": "New York Times", "color": "gray"}
   ]
 }
