@@ -72,11 +72,11 @@ export default (svg, container, width, height) => {
     // })
 
     graph.reporters.forEach((reporter) => {
-      samePublicationLinks.push({"source": reporter.id, "target": reporter.publication, "value": 250})
+      samePublicationLinks.push({"source": reporter.id, "target": reporter.publication, "value": 250, color: colors[reporter.publication] })
     })
 
     graph.employments.forEach((employment) => {
-      samePublicationLinks.push({"source": employment.reporter, "target": employment.publication, "value": 250})
+      samePublicationLinks.push({"source": employment.reporter, "target": employment.publication, "value": 500, color: colors[employment.publication] })
     })
 
     let links = samePublicationLinks.concat(oldPublicationLinks);
@@ -91,7 +91,7 @@ export default (svg, container, width, height) => {
       .data(links)
       .enter().append("line")
         .attr("stroke-width", calculateStrokeWidth())
-        .style("stroke", (d) => d.value > 300 ? colors[d.publication] : "gray");
+        .style("stroke", (d) => d.color);
 
     var nodes = visualization
       .selectAll("g.nodes")
