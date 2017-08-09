@@ -14,7 +14,7 @@ export default (svg, container, width, height) => {
 
   var simulation = d3.forceSimulation()
       .force("link", d3.forceLink().id(function(d) { return d.id; }))
-      .force("charge", d3.forceManyBody().strength(-300))
+      .force("charge", d3.forceManyBody().strength(-200))
       .force("center", d3.forceCenter(width / 2, height / 2));
 
   d3.json("data.json", function(error, graph) {
@@ -87,7 +87,7 @@ export default (svg, container, width, height) => {
     // })
 
     graph.reporters.forEach((reporter) => {
-      samePublicationLinks.push({"source": reporter.id, "target": reporter.publication, "value": 100, color: colors[reporter.publication] })
+      samePublicationLinks.push({"source": reporter.id, "target": reporter.publication, "value": 50, color: colors[reporter.publication] })
     })
 
     graph.employments.forEach((employment) => {
@@ -97,7 +97,7 @@ export default (svg, container, width, height) => {
     let links = samePublicationLinks.concat(oldPublicationLinks);
 
     const calculateStrokeWidth = () => (d) => {
-      return d.value > 300 ? 0.8 : 1.5;
+      return d.value > 200 ? 0.8 : 2.3;
     }
 
     var link = visualization.append("g")
@@ -129,8 +129,9 @@ export default (svg, container, width, height) => {
            .style('font-family', 'Arial')
            .style("font-size", "12px")
            .style("font-weight", "600")
+           .attr("text-anchor", "middle")
            .style("text-shadow", "1px 1px 2px white")
-           .attr("transform", "translate(-27,42)");
+           .attr("transform", "translate(0,35)");
 
     nodes
           .on("mouseover", function(){
