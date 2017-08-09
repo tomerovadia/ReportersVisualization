@@ -22,17 +22,28 @@ export default (svg, container, width, height) => {
     var publications = visualization.selectAll('circle')
         .data(graph.publications, (d) => d.id)
         .enter()
-        .append('circle')
-        .style('fill', (d) => d.color)
+        .append('g')
         .attr('transform', (d, i) => {
           d.fx = (i+3)**5;
           d.fy = 250;
           return `translate(${(i+3)**5}, 250)`;
         })
-        .attr('r', 40)
+
+    publications
+        .append('circle')
+        .style('fill', (d) => d.color)
+        .attr('r', 80)
         .style('stroke', 'black')
-        .style('stroke-width', 2)
-        .classed("fixed", (d) => d.fixed = true);
+        .style('stroke-width', 2);
+
+    var publicationNames = publications.append('text')
+            .text((d) => d.id)
+            .style('font-family', 'Arial')
+            .style("font-size", "15px")
+            .style("fill", "white")
+            .attr("text-anchor", "middle")
+            .style("font-weight", "600")
+            .style("text-shadow", "1px 1px 2px black");
 
     if (error) throw error;
 
