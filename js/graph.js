@@ -24,10 +24,15 @@ export default (svg, container, width, height) => {
         .enter()
         .append('circle')
         .style('fill', (d) => d.color)
-        .attr('transform', (d, i) => `translate(${(i+3)**5}, 250)`)
+        .attr('transform', (d, i) => {
+          d.fx = (i+3)**5;
+          d.fy = 250;
+          return `translate(${(i+3)**5}, 250)`;
+        })
         .attr('r', 40)
         .style('stroke', 'black')
         .style('stroke-width', 2)
+        .classed("fixed", (d) => d.fixed = true);
 
     if (error) throw error;
 
@@ -71,11 +76,11 @@ export default (svg, container, width, height) => {
     // })
 
     graph.reporters.forEach((reporter) => {
-      samePublicationLinks.push({"source": reporter.id, "target": reporter.publication, "value": 150, color: colors[reporter.publication] })
+      samePublicationLinks.push({"source": reporter.id, "target": reporter.publication, "value": 125, color: colors[reporter.publication] })
     })
 
     graph.employments.forEach((employment) => {
-      samePublicationLinks.push({"source": employment.reporter, "target": employment.publication, "value": 450, color: colors[employment.publication] })
+      samePublicationLinks.push({"source": employment.reporter, "target": employment.publication, "value": 300, color: colors[employment.publication] })
     })
 
     let links = samePublicationLinks.concat(oldPublicationLinks);
@@ -128,11 +133,11 @@ export default (svg, container, width, height) => {
           .on("drag", nodedragged)
           .on("end", nodedragended));
 
-    publications
-      .call(d3.drag()
-          .on("start", nodedragstarted)
-          .on("drag", nodedragged)
-          .on("end", nodedragended));
+    // publications
+    //   .call(d3.drag()
+    //       .on("start", nodedragstarted)
+    //       .on("drag", nodedragged)
+    //       .on("end", nodedragended));
 
     circles.append("title")
         .text(function(d) { return d.id; });
@@ -147,17 +152,20 @@ export default (svg, container, width, height) => {
         .strength(0.20);
 
     function ticked() {
+
+      publications
+        .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")" });
+
       link
         .attr("x1", function(d) { return d.source.x; })
         .attr("y1", function(d) { return d.source.y; })
-        .attr("x2", function(d) { return d.target.x; })
-        .attr("y2", function(d) { return d.target.y; });
+        .attr("x2", function(d) { return d.target.fx; })
+        .attr("y2", function(d) { return d.target.fy; });
 
       nodes
         .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")" });
 
-      // publications
-      //   .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")" });
+
 
     }
   });
