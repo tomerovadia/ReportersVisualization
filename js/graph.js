@@ -14,7 +14,7 @@ export default (svg, container, width, height) => {
 
   var simulation = d3.forceSimulation()
       .force("link", d3.forceLink().id(function(d) { return d.id; }))
-      .force("charge", d3.forceManyBody())
+      .force("charge", d3.forceManyBody().strength(-300))
       .force("center", d3.forceCenter(width / 2, height / 2));
 
   d3.json("data.json", function(error, graph) {
@@ -71,11 +71,11 @@ export default (svg, container, width, height) => {
     // })
 
     graph.reporters.forEach((reporter) => {
-      samePublicationLinks.push({"source": reporter.id, "target": reporter.publication, "value": 250, color: colors[reporter.publication] })
+      samePublicationLinks.push({"source": reporter.id, "target": reporter.publication, "value": 150, color: colors[reporter.publication] })
     })
 
     graph.employments.forEach((employment) => {
-      samePublicationLinks.push({"source": employment.reporter, "target": employment.publication, "value": 500, color: colors[employment.publication] })
+      samePublicationLinks.push({"source": employment.reporter, "target": employment.publication, "value": 450, color: colors[employment.publication] })
     })
 
     let links = samePublicationLinks.concat(oldPublicationLinks);
@@ -128,6 +128,12 @@ export default (svg, container, width, height) => {
           .on("drag", nodedragged)
           .on("end", nodedragended));
 
+    publications
+      .call(d3.drag()
+          .on("start", nodedragstarted)
+          .on("drag", nodedragged)
+          .on("end", nodedragended));
+
     circles.append("title")
         .text(function(d) { return d.id; });
 
@@ -150,8 +156,8 @@ export default (svg, container, width, height) => {
       nodes
         .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")" });
 
-      publications
-        .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")" });
+      // publications
+      //   .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")" });
 
     }
   });
