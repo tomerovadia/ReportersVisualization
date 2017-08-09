@@ -19,13 +19,12 @@ export default (svg, container, width, height) => {
 
   d3.json("data.json", function(error, graph) {
 
-    visualization.selectAll('circle')
+    var publications = visualization.selectAll('circle')
         .data(graph.publications, (d) => d.id)
         .enter()
         .append('circle')
         .style('fill', (d) => d.color)
-        .attr('cx', (d, i) => (i+3)**5)
-        .attr('cy', 250)
+        .attr('transform', (d, i) => `translate(${(i+3)**5}, 250)`)
         .attr('r', 40)
         .style('stroke', 'black')
         .style('stroke-width', 2)
@@ -149,6 +148,9 @@ export default (svg, container, width, height) => {
         .attr("y2", function(d) { return d.target.y; });
 
       nodes
+        .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")" });
+
+      publications
         .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")" });
 
     }
