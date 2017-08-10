@@ -9,32 +9,42 @@ export default (svg, container, width, height) => {
     "Politico": "darkred",
   }
 
-
-  // var color = d3.scaleOrdinal(d3.schemeCategory10);
-
   var simulation = d3.forceSimulation()
       .force("link", d3.forceLink().id(function(d) { return d.id; }))
-      .force("charge", d3.forceManyBody().strength(-200))
+      .force("charge", d3.forceManyBody().strength(-3000))
       .force("center", d3.forceCenter(width / 2, height / 2));
 
-  d3.json("data.json", function(error, graph) {
-
-    var publications = visualization.selectAll('circle')
-        .data(graph.publications, (d) => d.id)
+  const appendPublications = (parent, data) => {
+    const publications = parent.selectAll('g.publication')
+        .data(data, (d) => d.id)
         .enter()
         .append('g')
+        .classed('publication', true)
         .attr('transform', (d, i) => {
           d.fx = (i+3)**5;
           d.fy = 250;
           return `translate(${(i+3)**5}, 250)`;
         })
 
-    publications
+    appendCirclesToPublications(publications);
+
+    return publications;
+  }
+
+  const appendCirclesToPublications = (publications) => {
+    return publications
         .append('circle')
         .style('fill', (d) => d.color)
         .attr('r', 80)
         .style('stroke', 'black')
         .style('stroke-width', 2);
+  }
+
+  d3.json("data.json", function(error, graph) {
+
+    const publications = appendPublications(visualization, graph.publications)
+
+
 
     var publicationNames = publications.append('text')
             .text((d) => d.id)
@@ -70,24 +80,8 @@ export default (svg, container, width, height) => {
     let samePublicationLinks = [];
     let oldPublicationLinks = [];
 
-    // graph.reporters.forEach((reporter1) => {
-    //   graph.reporters.forEach((reporter2) => {
-    //     if(reporter1.id !== reporter2.id && reporter1.publication === reporter2.publication){
-    //       samePublicationLinks.push({"source": reporter1.id, "target": reporter2.id, "value": 250})
-    //     }
-    //   })
-    // })
-    //
-    // graph.reporters.forEach((reporter) => {
-    //   graph.employments.forEach((employment) => {
-    //     if(reporter.publication === employment.publication){
-    //       oldPublicationLinks.push({"source": reporter.id, "target": employment.reporter, "value": 500, publication: employment.publication})
-    //     }
-    //   })
-    // })
-
     graph.reporters.forEach((reporter) => {
-      samePublicationLinks.push({"source": reporter.id, "target": reporter.publication, "value": 50, color: colors[reporter.publication] })
+      samePublicationLinks.push({"source": reporter.id, "target": reporter.publication, "value": 20, color: colors[reporter.publication] })
     })
 
     graph.employments.forEach((employment) => {
@@ -158,10 +152,11 @@ export default (svg, container, width, height) => {
         .nodes(graph.reporters.concat(graph.publications))
         .on("tick", ticked);
 
+
     simulation.force("link")
         .links(links)
         .distance((d) => d.value)
-        .strength(0.20);
+        .strength(1);
 
     function ticked() {
 
