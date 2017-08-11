@@ -44,8 +44,6 @@ export default (svg, container, width, height) => {
 
     const publications = appendPublications(visualization, graph.publications)
 
-
-
     var publicationNames = publications.append('text')
             .text((d) => d.id)
             .style('font-family', 'Arial')
