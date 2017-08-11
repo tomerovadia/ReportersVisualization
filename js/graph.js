@@ -21,8 +21,8 @@ export default (svg, container, width, height) => {
         .append('g')
         .classed('publication', true)
         .attr('transform', (d, i) => {
-          d.x = (i+3)**5;
-          d.y = 250;
+          d.fx = (i+3)**5;
+          d.fy = 250;
           return `translate(${(i+3)**5}, 250)`;
         })
 
@@ -164,8 +164,8 @@ export default (svg, container, width, height) => {
       link
         .attr("x1", function(d) { return d.source.x; })
         .attr("y1", function(d) { return d.source.y; })
-        .attr("x2", function(d) { return d.target.x; })
-        .attr("y2", function(d) { return d.target.y; });
+        .attr("x2", function(d) { return d.target.fx; })
+        .attr("y2", function(d) { return d.target.fy; });
 
       nodes
         .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")" });
