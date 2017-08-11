@@ -137,11 +137,11 @@ export default (svg, container, width, height) => {
           .on("drag", nodedragged)
           .on("end", nodedragended));
 
-    publications
-      .call(d3.drag()
-          .on("start", nodedragstarted)
-          .on("drag", nodedragged)
-          .on("end", nodedragended));
+    // publications
+    //   .call(d3.drag()
+    //       .on("start", nodedragstarted)
+    //       .on("drag", nodedragged)
+    //       .on("end", nodedragended));
 
     circles.append("title")
         .text(function(d) { return d.id; });
