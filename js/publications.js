@@ -7,8 +7,8 @@ export const appendPublications = (svg, visualization, data) => {
       .append('g')
       .classed('publication', true)
       .attr('transform', (d, i) => {
-        d.fx = (i+3)**5;
-        d.fy = 250;
+        d.x = (i+3)**5;
+        d.y = 250;
         return `translate(${(i+3)**5}, 250)`;
       })
 

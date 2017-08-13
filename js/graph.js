@@ -53,6 +53,14 @@ export default (svg, container, width, height) => {
         .distance((d) => d.value)
         .strength((d) => d.current === true ? 3 : 1);
 
+
+
+    var publicationSimulation = d3.forceSimulation(graph.publications)
+        .force("charge", d3.forceManyBody().strength(3000) );
+
+
+
+
     function ticked() {
 
       publications
@@ -61,8 +69,8 @@ export default (svg, container, width, height) => {
       links
         .attr("x1", function(d) { return d.source.x; })
         .attr("y1", function(d) { return d.source.y; })
-        .attr("x2", function(d) { return d.target.fx; })
-        .attr("y2", function(d) { return d.target.fy; });
+        .attr("x2", function(d) { return d.target.x; })
+        .attr("y2", function(d) { return d.target.y; });
 
       nodes
         .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")" });
@@ -72,7 +80,7 @@ export default (svg, container, width, height) => {
   });
 
   function nodedragstarted(d) {
-    if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+    if (!d3.event.active) simulation.alphaTarget(0.01).restart();
     d.fx = d.x;
     d.fy = d.y;
   }
