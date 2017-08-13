@@ -9,14 +9,13 @@ const getPublicationColors = (data) => {
   return publicationColors;
 }
 
-
 export default (svg, container, width, height) => {
 
-  const visualization = container.append('g');
+  const visualization = container.append('g').classed('visualization', true);
 
   var simulation = d3.forceSimulation()
-      .force("link", d3.forceLink().id(function(d) { return d.id; }))
-      .force("charge", d3.forceManyBody().strength(-3000))
+      .force("link", d3.forceLink().id(function(d) { return d.id; }) )
+      .force("charge", d3.forceManyBody().strength(-5000) );
 
   d3.json("data.json", function(error, graph) {
 
@@ -38,7 +37,6 @@ export default (svg, container, width, height) => {
           .on("drag", nodedragged)
           .on("end", nodedragended));
 
-
     // publications
     //   .call(d3.drag()
     //       .on("start", nodedragstarted)
@@ -53,7 +51,7 @@ export default (svg, container, width, height) => {
         .force("link")
         .links(linkData)
         .distance((d) => d.value)
-        .strength(1);
+        .strength((d) => d.current === true ? 3 : 1);
 
     function ticked() {
 
@@ -70,6 +68,7 @@ export default (svg, container, width, height) => {
         .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")" });
 
     }
+
   });
 
   function nodedragstarted(d) {
