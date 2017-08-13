@@ -1,4 +1,5 @@
 const d3 = require('d3');
+import { appendPublications } from './circles.js'
 
 export default (svg, container, width, height) => {
 
@@ -13,67 +14,6 @@ export default (svg, container, width, height) => {
       .force("link", d3.forceLink().id(function(d) { return d.id; }))
       .force("charge", d3.forceManyBody().strength(-3000))
 
-  const appendPublications = (parent, data) => {
-    const publications = parent.selectAll('g.publication')
-        .data(data, (d) => d.id)
-        .enter()
-        .append('g')
-        .classed('publication', true)
-        .attr('transform', (d, i) => {
-          d.fx = (i+3)**5;
-          d.fy = 250;
-          return `translate(${(i+3)**5}, 250)`;
-        })
-
-    appendCirclesToPublications(publications);
-    appendTextToPublications(publications);
-
-    return publications;
-  }
-
-  const appendCirclesToPublications = (publications) => {
-    return publications
-        .append('circle')
-        .style('fill', (d) => d.color)
-        .attr('r', 80)
-        .style('stroke', 'black')
-        .style('stroke-width', 2);
-  }
-
-  const appendTextToPublications = (publications) => {
-    return publications.append('text')
-        .text((d) => d.id)
-        .style('font-family', 'Arial')
-        .style("font-size", "15px")
-        .style("fill", "white")
-        .attr("text-anchor", "middle")
-        .style("font-weight", "600")
-        .style("text-shadow", "1px 1px 2px black");
-  }
-
-  const prepareCircleImages = (reporterData) => {
-    const defs = svg.append("defs").attr("id", "imgdefs");
-
-    const patterns = defs
-    .selectAll('pattern')
-    .data(reporterData)
-    .enter()
-    .append("pattern")
-      .attr("id", function(d){ return d.id } )
-      .attr("height", 1)
-      .attr("width", 1)
-      .attr("viewBox", "0 0 100 100")
-      .attr("preserveAspectRatio", "none")
-      .attr("x", "0")
-      .attr("y", "0")
-
-    patterns
-      .append("image")
-        .attr("preserveAspectRatio", "none")
-        .attr("height", 100)
-        .attr("width", 100)
-        .attr("xlink:href", function(d){ return d.img_url})
-  }
 
   const createCurrentEmploymentLinks = (data) => {
     return data.map((reporter) => {
@@ -101,22 +41,21 @@ export default (svg, container, width, height) => {
 
   d3.json("data.json", function(error, graph) {
 
-    const publications = appendPublications(visualization, graph.publications)
-    prepareCircleImages(graph.reporters);
+    const publications = appendPublications(svg, visualization, graph);
 
     if (error) throw error;
 
-    let links = createCurrentEmploymentLinks(graph.reporters)
+    const linkData = createCurrentEmploymentLinks(graph.reporters)
                   .concat(createPreviousEmploymentsLinks(graph.employments));
 
     const calculateStrokeWidth = () => (d) => {
       return d.value > 200 ? 0.8 : 2.3;
     }
 
-    var link = visualization.append("g")
+    var links = visualization.append("g")
         .attr("class", "links")
       .selectAll("line")
-      .data(links)
+      .data(linkData)
       .enter().append("line")
         .attr("stroke-width", calculateStrokeWidth())
         .style("stroke", (d) => d.color);
@@ -173,7 +112,7 @@ export default (svg, container, width, height) => {
 
 
     simulation.force("link")
-        .links(links)
+        .links(linkData)
         .distance((d) => d.value)
         .strength(1);
 
@@ -182,7 +121,7 @@ export default (svg, container, width, height) => {
       publications
         .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")" });
 
-      link
+      links
         .attr("x1", function(d) { return d.source.x; })
         .attr("y1", function(d) { return d.source.y; })
         .attr("x2", function(d) { return d.target.fx; })
