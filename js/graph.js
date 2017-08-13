@@ -12,7 +12,6 @@ export default (svg, container, width, height) => {
   var simulation = d3.forceSimulation()
       .force("link", d3.forceLink().id(function(d) { return d.id; }))
       .force("charge", d3.forceManyBody().strength(-3000))
-      // .force("center", d3.forceCenter(width / 2, height / 2));
 
   const appendPublications = (parent, data) => {
     const publications = parent.selectAll('g.publication')
@@ -27,6 +26,7 @@ export default (svg, container, width, height) => {
         })
 
     appendCirclesToPublications(publications);
+    appendTextToPublications(publications);
 
     return publications;
   }
@@ -40,40 +40,44 @@ export default (svg, container, width, height) => {
         .style('stroke-width', 2);
   }
 
+  const appendTextToPublications = (publications) => {
+    return publications.append('text')
+        .text((d) => d.id)
+        .style('font-family', 'Arial')
+        .style("font-size", "15px")
+        .style("fill", "white")
+        .attr("text-anchor", "middle")
+        .style("font-weight", "600")
+        .style("text-shadow", "1px 1px 2px black");
+  }
+
+  const prepareCircleImages = (reporterData) => {
+    svg.append("defs").attr("id", "imgdefs")
+          .selectAll('pattern')
+          .data(reporterData)
+          .enter()
+          .append("pattern")
+            .attr("id", function(d){ return d.id } )
+            .attr("height", 1)
+            .attr("width", 1)
+            .attr("viewBox", "0 0 100 100")
+            .attr("preserveAspectRatio", "none")
+            .attr("x", "0")
+            .attr("y", "0")
+            .append("image")
+              .attr("preserveAspectRatio", "none")
+              .attr("height", 100)
+              .attr("width", 100)
+              .attr("xlink:href", function(d){ return d.img_url})
+  }
+
   d3.json("data.json", function(error, graph) {
 
     const publications = appendPublications(visualization, graph.publications)
-
-    var publicationNames = publications.append('text')
-            .text((d) => d.id)
-            .style('font-family', 'Arial')
-            .style("font-size", "15px")
-            .style("fill", "white")
-            .attr("text-anchor", "middle")
-            .style("font-weight", "600")
-            .style("text-shadow", "1px 1px 2px black");
+    prepareCircleImages(graph.reporters);
 
     if (error) throw error;
 
-    var defs = svg.append("defs").attr("id", "imgdefs")
-
-    var patterns = defs.selectAll('pattern')
-                    .data(graph.reporters)
-                    .enter()
-                    .append("pattern")
-                    .attr("id", function(d){ return d.id } )
-                    .attr("height", 1)
-                    .attr("width", 1)
-                    .attr("viewBox", "0 0 100 100")
-                    .attr("preserveAspectRatio", "none")
-                    .attr("x", "0")
-                    .attr("y", "0");
-
-    patterns.append("image")
-          .attr("preserveAspectRatio", "none")
-          .attr("height", 100)
-          .attr("width", 100)
-          .attr("xlink:href", function(d){ return d.img_url})
 
     let samePublicationLinks = [];
     let oldPublicationLinks = [];
