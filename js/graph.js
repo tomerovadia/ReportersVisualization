@@ -1,7 +1,7 @@
 const d3 = require('d3');
-import { appendPublications } from './publications.js'
-import { appendJournalists } from './journalists.js'
-import { appendLinks, prepareLinkData } from './links.js'
+import { appendPublications } from './publications.js';
+import { appendJournalists } from './journalists.js';
+import { appendLinks, prepareLinkData } from './links.js';
 
 const getPublicationColors = (data) => {
   const publicationColors = {};

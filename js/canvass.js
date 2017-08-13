@@ -2,8 +2,10 @@ const d3 = require('d3');
 import renderGraph from './graph';
 
 var margin = {top: -5, right: -5, bottom: -5, left: -5},
-    width = window.screen.availWidth - margin.left - margin.right,
-    height = window.screen.availHeight - margin.top - margin.bottom;
+    width = 5000,
+    height = 5000;
+    // width = window.screen.availWidth - margin.left - margin.right,
+    // height = window.screen.availHeight - margin.top - margin.bottom;
 
 var zoom = d3.zoom()
     .scaleExtent([1, 10])
@@ -18,6 +20,9 @@ var drag = d3.drag()
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
+    .style('top', (height/2) * -1 )
+    .style('left', (width/2) * -1 )
+    .style('position', 'absolute')
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.right + ")")
     .call(zoom);
@@ -49,8 +54,6 @@ container.append("g")
     .attr("y1", function(d) { return d; })
     .attr("x2", width)
     .attr("y2", function(d) { return d; });
-
-
 
 function dottype(d) {
   d.x = +d.x;
