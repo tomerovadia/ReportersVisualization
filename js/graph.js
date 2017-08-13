@@ -52,24 +52,52 @@ export default (svg, container, width, height) => {
   }
 
   const prepareCircleImages = (reporterData) => {
-    svg.append("defs").attr("id", "imgdefs")
-          .selectAll('pattern')
-          .data(reporterData)
-          .enter()
-          .append("pattern")
-            .attr("id", function(d){ return d.id } )
-            .attr("height", 1)
-            .attr("width", 1)
-            .attr("viewBox", "0 0 100 100")
-            .attr("preserveAspectRatio", "none")
-            .attr("x", "0")
-            .attr("y", "0")
-            .append("image")
-              .attr("preserveAspectRatio", "none")
-              .attr("height", 100)
-              .attr("width", 100)
-              .attr("xlink:href", function(d){ return d.img_url})
+    const defs = svg.append("defs").attr("id", "imgdefs");
+
+    const patterns = defs
+    .selectAll('pattern')
+    .data(reporterData)
+    .enter()
+    .append("pattern")
+      .attr("id", function(d){ return d.id } )
+      .attr("height", 1)
+      .attr("width", 1)
+      .attr("viewBox", "0 0 100 100")
+      .attr("preserveAspectRatio", "none")
+      .attr("x", "0")
+      .attr("y", "0")
+
+    patterns
+      .append("image")
+        .attr("preserveAspectRatio", "none")
+        .attr("height", 100)
+        .attr("width", 100)
+        .attr("xlink:href", function(d){ return d.img_url})
   }
+
+  const createCurrentEmploymentLinks = (data) => {
+    return data.map((reporter) => {
+      return {
+        source: reporter.id,
+        target: reporter.publication,
+        value: 20,
+        color: colors[reporter.publication]
+      };
+    });
+  }
+
+
+  const createPreviousEmploymentsLinks = (data) => {
+    return data.map((employment) => {
+      return {
+        source: employment.reporter,
+        target: employment.publication,
+        value: 250,
+        color: colors[employment.publication]
+      };
+    })
+  }
+
 
   d3.json("data.json", function(error, graph) {
 
@@ -78,19 +106,8 @@ export default (svg, container, width, height) => {
 
     if (error) throw error;
 
-
-    let samePublicationLinks = [];
-    let oldPublicationLinks = [];
-
-    graph.reporters.forEach((reporter) => {
-      samePublicationLinks.push({"source": reporter.id, "target": reporter.publication, "value": 20, color: colors[reporter.publication] })
-    })
-
-    graph.employments.forEach((employment) => {
-      samePublicationLinks.push({"source": employment.reporter, "target": employment.publication, "value": 250, color: colors[employment.publication] })
-    })
-
-    let links = samePublicationLinks.concat(oldPublicationLinks);
+    let links = createCurrentEmploymentLinks(graph.reporters)
+                  .concat(createPreviousEmploymentsLinks(graph.employments));
 
     const calculateStrokeWidth = () => (d) => {
       return d.value > 200 ? 0.8 : 2.3;
