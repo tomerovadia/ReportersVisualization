@@ -1,7 +1,7 @@
 const d3 = require('d3');
 import { appendPublications } from './publications.js'
 import { appendJournalists } from './journalists.js'
-import { createLinks } from './links.js'
+import { appendLinks, prepareLinkData } from './links.js'
 
 const getPublicationColors = (data) => {
   const publicationColors = {};
@@ -26,19 +26,9 @@ export default (svg, container, width, height) => {
 
     if (error) throw error;
 
-    const linkData = createLinks(graph, publicationColors);
+    const linkData = prepareLinkData(graph, publicationColors);
 
-    const calculateStrokeWidth = () => (d) => {
-      return d.value > 200 ? 0.8 : 2.3;
-    }
-
-    var links = visualization.append("g")
-        .attr("class", "links")
-      .selectAll("line")
-      .data(linkData)
-      .enter().append("line")
-        .attr("stroke-width", calculateStrokeWidth())
-        .style("stroke", (d) => d.color);
+    const links = appendLinks(visualization, linkData);
 
     const nodes = appendJournalists(visualization, graph, publicationColors);
 
@@ -59,8 +49,8 @@ export default (svg, container, width, height) => {
         .nodes(graph.reporters.concat(graph.publications))
         .on("tick", ticked);
 
-
-    simulation.force("link")
+    simulation
+        .force("link")
         .links(linkData)
         .distance((d) => d.value)
         .strength(1);
