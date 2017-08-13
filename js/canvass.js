@@ -1,9 +1,9 @@
 const d3 = require('d3');
 import renderGraph from './graph';
 
-var margin = {top: -5, right: -5, bottom: -5, left: -5},
-    width = 5000,
-    height = 5000;
+// var margin = {top: -5, right: -5, bottom: -5, left: -5},
+    var width = 5000,
+      height = 5000;
     // width = window.screen.availWidth - margin.left - margin.right,
     // height = window.screen.availHeight - margin.top - margin.bottom;
 
@@ -18,13 +18,10 @@ var drag = d3.drag()
     .on("end", dragended);
 
 var svg = d3.select("body").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .style('top', (height/2) * -1 )
-    .style('left', (width/2) * -1 )
-    .style('position', 'absolute')
+    .attr("width", width)
+    .attr("height", height)
   .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.right + ")")
+    .attr('transform', 'translate(' + height*(-2/5) + ',' + width*(-2/5) + ')')
     .call(zoom);
 
 var rect = svg.append("rect")
@@ -33,7 +30,8 @@ var rect = svg.append("rect")
     .style("fill", "none")
     .style("pointer-events", "all");
 
-var container = svg.append("g");
+var container = svg.append("g")
+  .classed('container', true)
 
 container.append("g")
     .attr("class", "x axis")
@@ -56,6 +54,7 @@ container.append("g")
     .attr("y2", function(d) { return d; });
 
 function dottype(d) {
+  console.log('asdf')
   d.x = +d.x;
   d.y = +d.y;
   return d;
@@ -77,7 +76,6 @@ function dragged(d) {
 function dragended(d) {
   d3.select(this).classed("dragging", false);
 }
-
 
 
 renderGraph(svg, container, width, height);

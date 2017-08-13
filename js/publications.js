@@ -1,16 +1,17 @@
 const d3 = require('d3');
 
-export const appendPublications = (svg, visualization, data) => {
+export const appendPublications = (svg, visualization, data, width, height) => {
   const publications = visualization.selectAll('g.publication')
       .data(data.publications, (d) => d.id)
       .enter()
       .append('g')
       .classed('publication', true)
-      .attr('transform', (d, i) => {
-        d.x = (i+3)**5;
-        d.y = 250;
-        return `translate(${(i+3)**5}, 250)`;
-      })
+      // .attr('transform', 'translate(' + height*(-2/5) + ',' + width*(-2/5) + ')');
+      // .attr('transform', (d, i) => {
+      //   d.x = (i+3)**5;
+      //   d.y = 250;
+      //   return `translate(${(i+3)**5}, 250)`;
+      // })
 
   appendCirclesToPublications(publications);
   appendTextToPublications(publications);

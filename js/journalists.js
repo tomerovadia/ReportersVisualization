@@ -1,14 +1,15 @@
 const d3 = require('d3');
 
 
-export const appendJournalists = (visualization, data, publicationColors) => {
+export const appendJournalists = (visualization, data, publicationColors, width, height) => {
 
   const nodes = visualization
       .selectAll("g.nodes")
       .data(data.reporters)
       .enter()
       .append("g")
-        .attr("class", "nodes");
+        .attr("class", "nodes")
+        // .attr('transform', 'translate(' + height*(-2/5) + ',' + width*(-2/5) + ')');
 
   const circles = appendCircles(nodes, publicationColors);
 

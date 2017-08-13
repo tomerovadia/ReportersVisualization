@@ -11,17 +11,20 @@ const getPublicationColors = (data) => {
 
 export default (svg, container, width, height) => {
 
-  const visualization = container.append('g').classed('visualization', true);
+  const visualization = container.append('g')
+    .classed('visualization', true);
 
   var simulation = d3.forceSimulation()
       .force("link", d3.forceLink().id(function(d) { return d.id; }) )
-      .force("charge", d3.forceManyBody().strength(-5000) );
+      .force("charge", d3.forceManyBody().strength(-5000) )
+      .force("center", d3.forceCenter(width/2, height/2) );
+
 
   d3.json("data.json", function(error, graph) {
 
     const publicationColors = getPublicationColors(graph);
 
-    const publications = appendPublications(svg, visualization, graph);
+    const publications = appendPublications(svg, visualization, graph, width, height);
 
     if (error) throw error;
 
@@ -29,7 +32,7 @@ export default (svg, container, width, height) => {
 
     const links = appendLinks(visualization, linkData);
 
-    const nodes = appendJournalists(visualization, graph, publicationColors);
+    const nodes = appendJournalists(visualization, graph, publicationColors, width, height);
 
     nodes
       .call(d3.drag()
@@ -53,10 +56,12 @@ export default (svg, container, width, height) => {
         .distance((d) => d.value)
         .strength((d) => d.current === true ? 3 : 1);
 
+    simulation.velocityDecay(0.2);
 
 
-    var publicationSimulation = d3.forceSimulation(graph.publications)
-        .force("charge", d3.forceManyBody().strength(3000) );
+
+    // var publicationSimulation = d3.forceSimulation(graph.publications)
+    //     .force("charge", d3.forceManyBody().strength(3000) );
 
 
 
