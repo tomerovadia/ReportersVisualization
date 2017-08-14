@@ -19,7 +19,7 @@ const createCurrentEmploymentLinks = (reporters, publicationColors) => {
     return {
       source: reporter.id,
       target: reporter.publication,
-      value: 100,
+      value: 50,
       color: publicationColors[reporter.publication],
       current: true,
     };
@@ -32,7 +32,7 @@ const createPreviousEmploymentsLinks = (employments, publicationColors) => {
     return {
       source: employment.reporter,
       target: employment.publication,
-      value: 175,
+      value: 75,
       color: publicationColors[employment.publication],
       current: false,
     };
@@ -40,5 +40,5 @@ const createPreviousEmploymentsLinks = (employments, publicationColors) => {
 }
 
 const calculateStrokeWidth = () => (d) => {
-  return d.value > 125 ? 0.8 : 2.3;
+  return d.value > 60 ? 0.8 : 2.3;
 }

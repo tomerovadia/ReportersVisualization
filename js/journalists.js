@@ -30,9 +30,9 @@ export const appendJournalists = (visualization, data, publicationColors, width,
 const appendCircles = (nodes, publicationColors) => {
   return nodes
       .append("circle")
-        .attr("r", 20)
+        .attr("r", 10)
         .style("stroke", function(d) { return publicationColors[d.publication]; })
-        .style("stroke-width", 3)
+        .style("stroke-width", 2)
         .attr("fill", function(d){ return `url('#${d.id}')` } );
 }
 
@@ -55,9 +55,9 @@ const appendTextToJournalists = (nodes) => {
        .append('text')
          .text((d) => d.id)
          .style('font-family', 'Arial')
-         .style("font-size", "12px")
+         .style("font-size", "9px")
          .style("font-weight", "600")
          .attr("text-anchor", "middle")
          .style("text-shadow", "1px 1px 2px white")
-         .attr("transform", "translate(0,35)");
+         .attr("transform", "translate(0,20)");
 }

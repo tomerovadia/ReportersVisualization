@@ -24,7 +24,7 @@ const appendCirclesToPublications = (publications) => {
   return publications
       .append('circle')
       .style('fill', (d) => d.color)
-      .attr('r', 80)
+      .attr('r', 50)
       .style('stroke', 'black')
       .style('stroke-width', 2);
 }
@@ -33,7 +33,7 @@ const appendTextToPublications = (publications) => {
   return publications.append('text')
       .text((d) => d.id)
       .style('font-family', 'Arial')
-      .style("font-size", "15px")
+      .style("font-size", "11px")
       .style("fill", "white")
       .attr("text-anchor", "middle")
       .style("font-weight", "600")
