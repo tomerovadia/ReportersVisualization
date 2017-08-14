@@ -24,15 +24,15 @@ export default (svg, container, width, height) => {
 
     const publicationColors = getPublicationColors(graph);
 
-    const publications = appendPublications(svg, visualization, graph, width, height);
 
     if (error) throw error;
 
     const linkData = prepareLinkData(graph, publicationColors);
 
-    const links = appendLinks(visualization, linkData);
 
+    const links = appendLinks(visualization, linkData);
     const nodes = appendJournalists(visualization, graph, publicationColors, width, height);
+    const publications = appendPublications(svg, visualization, graph, width, height);
 
     nodes
       .call(d3.drag()
