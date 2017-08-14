@@ -55,7 +55,8 @@
     {"id": "James Hohmann", "publication": "Washington Post", "img_url": "http://wpr-public.s3.amazonaws.com/wprorg/s3fs-public/images/bios/JamesHohman.jpg"},
     {"id": "Robert Costa", "publication": "Washington Post", "img_url": "https://img.washingtonpost.com/pbox.php?url=http://wp-eng-static.washingtonpost.com/author_images/costar.jpeg?ts=1436450255109&w=1484&op=resize&opt=1&filter=antialias&t=20170517"},
     {"id": "John Wagner", "publication": "Washington Post", "img_url": "https://pbs.twimg.com/profile_images/551949028754071552/sJLxqWYv.jpeg"},
-    {"id": "Jenna Johnson", "publication": "Washington Post", "img_url": "http://static.cision.com/us/wp-content/uploads/2014/02/Jenna-Johnson1.jpg"}
+    {"id": "Jenna Johnson", "publication": "Washington Post", "img_url": "http://static.cision.com/us/wp-content/uploads/2014/02/Jenna-Johnson1.jpg"},
+    {"id": "David Fahrenthold", "publication": "Washington Post", "img_url": "https://pbs.twimg.com/profile_images/776115856585678848/P4s1nx_z.jpg"}
   ],
   "employments": [
     {"reporter": "Ken Vogel", "publication": "Politico", "start": 2006, "end": 2017},
