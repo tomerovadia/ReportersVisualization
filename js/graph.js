@@ -31,8 +31,8 @@ export default (svg, container, width, height) => {
 
 
     const links = appendLinks(visualization, linkData);
-    const nodes = appendJournalists(visualization, graph, publicationColors, width, height);
     const publications = appendPublications(svg, visualization, graph, width, height);
+    const nodes = appendJournalists(visualization, graph, publicationColors, width, height);
 
     nodes
       .call(d3.drag()
@@ -54,7 +54,7 @@ export default (svg, container, width, height) => {
         .force("link")
         .links(linkData)
         .distance((d) => d.value)
-        .strength((d) => d.current === true ? 3 : 1);
+        .strength((d) => d.current === true ? 3 : 1.75);
 
     simulation.velocityDecay(0.2);
 

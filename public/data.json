@@ -20,6 +20,9 @@
     {"id": "Michael Shear", "publication": "New York Times", "img_url": "http://harvardpolitics.com/blog/wp-content/uploads/2012/11/0826shear.jpg"},
     {"id": "Sewell Chan", "publication": "New York Times", "img_url": "https://pbs.twimg.com/profile_images/2330990924/bjdp6snaoufqs4maaxox.jpeg"},
     {"id": "Jeremy W. Peters", "publication": "New York Times", "img_url": "http://images.rcp.realclearpolitics.com/294741.jpg"},
+    {"id": "Eric Lipton", "publication": "New York Times", "img_url": "https://pbs.twimg.com/profile_images/641671803291631617/zQ3j92jI.jpg"},
+    {"id": "Sharon LaFraniere", "publication": "New York Times", "img_url": "https://pbs.twimg.com/profile_images/847629227910324228/evRGJSbx.jpg"},
+    {"id": "Matt Apuzzo", "publication": "New York Times", "img_url": "http://www.pulitzer.org/files/2012/apuzzo2012.jpg"},
     {"id": "Anna Palmer", "publication": "Politico", "img_url": "http://s3-origin-images.politico.com/2014/02/25/annaheadshot_288.jpg"},
     {"id": "Jake Sherman", "publication": "Politico", "img_url": "http://s3-origin-images.politico.com/2014/02/25/jakeheadshot_288.jpg"},
     {"id": "Alex Isenstadt", "publication": "Politico", "img_url": "http://s3-origin-images.politico.com/2014/08/15/20140813js_alex_isenstadt_015.jpg"},
@@ -27,7 +30,32 @@
     {"id": "John Bresnahan", "publication": "Politico", "img_url": "http://s3-origin-images.politico.com/johnbredgnahan.jpg"},
     {"id": "Josh Gerstein", "publication": "Politico", "img_url": "http://s3-origin-images.politico.com/reporter/online_josh_gerstein.jpg"},
     {"id": "Seung Min Kim", "publication": "Politico", "img_url": "http://images.politico.com/global/arena/100108_seungminkim_photo.jpg"},
-    {"id": "Burgess Everett", "publication": "Politico", "img_url": "http://s3-origin-images.politico.com/2013/10/24/20131024-burgess-everett11-web.jpg"}
+    {"id": "Burgess Everett", "publication": "Politico", "img_url": "http://s3-origin-images.politico.com/2013/10/24/20131024-burgess-everett11-web.jpg"},
+    {"id": "Peter Finn", "publication": "Washington Post", "img_url": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://s3.amazonaws.com/arc-authors/washpost/fc7fbbd7-2e0c-4d0f-acd8-bf3c938b0495.jpeg&w=90&h=90"},
+    {"id": "Carol Morello", "publication": "Washington Post", "img_url": "https://img.washingtonpost.com/pbox.php?url=http://img.washingtonpost.com/news/local/wp-content/uploads/sites/2/2014/05/10_110_20_1056.jpg&w=1484&op=resize&opt=1&filter=antialias&t=20170517"},
+    {"id": "Sari Horwitz", "publication": "Washington Post", "img_url": "https://www.washingtonpost.com/wp-apps/imrs.php?src=http://wp-eng-static.washingtonpost.com/author_images/horwitzs.jpg?ts=1411921983534&w=90&h=90"},
+    {"id": "Greg Jaffe", "publication": "Washington Post", "img_url": "https://journalism.missouri.edu/wp-content/uploads/2013/02/Greg-Jaffe.jpg"},
+    {"id": "Emily Wax", "publication": "Washington Post", "img_url": "https://pbs.twimg.com/profile_images/501796131635204096/LF9m3ZQu_400x400.jpeg"},
+    {"id": "Lyndsey Layton", "publication": "Washington Post", "img_url": "https://pbs.twimg.com/profile_images/1330352773/filefoto.jpg"},
+    {"id": "Robert Barnes", "publication": "Washington Post", "img_url": "https://pbs.twimg.com/profile_images/378800000082664229/d1aa41b411da85811704203729a25ff0_400x400.jpeg"},
+    {"id": "Ariana Cha", "publication": "Washington Post", "img_url": "https://pbs.twimg.com/profile_images/3321113251/2da8d6bc121a378a8adf71716b3bced0_400x400.jpeg"},
+    {"id": "Greg Miller", "publication": "Washington Post", "img_url": "https://www.washingtonpost.com/wp-apps/imrs.php?src=http://wp-eng-static.washingtonpost.com/author_images/millergp.jpg?ts=1441919004899&w=90&h=90"},
+    {"id": "Glenn Kessler", "publication": "Washington Post", "img_url": "https://pbs.twimg.com/profile_images/782334896798851072/Sv6ST6cw.jpg"},
+    {"id": "Elise Viebeck", "publication": "Washington Post", "img_url": "https://pbs.twimg.com/profile_images/701521080763162625/uUDXEKu6_400x400.png"},
+    {"id": "Eli Saslow", "publication": "Washington Post", "img_url": "https://img.washingtonpost.com/pbox.php?url=http://wp-eng-static.washingtonpost.com/author_images/saslowee.jpg?ts=1406665637756&w=1484&op=resize&opt=1&filter=antialias&t=20170517"},
+    {"id": "Cameron Barr", "publication": "Washington Post", "img_url": "https://pbs.twimg.com/profile_images/700415429244821504/eQWUmb86.jpg"},
+    {"id": "Dan Lamothe", "publication": "Washington Post", "img_url": "http://militaryreporters.org/wp-content/uploads/Dan-Lamothe.jpg"},
+    {"id": "Dan Balz", "publication": "Washington Post", "img_url": "https://img.washingtonpost.com/pbox.php?url=http://wp-eng-static.washingtonpost.com/author_images/balzdj.jpg?ts=1470407873036&w=1484&op=resize&opt=1&filter=antialias&t=20170517"},
+    {"id": "Valerie Strauss", "publication": "Washington Post", "img_url": "https://images.c-span.org/Files/9c1/1008197-292469-1.jpg/Thumbs/height.200.no_border.width.200.jpg"},
+    {"id": "Kimberly Kindy", "publication": "Washington Post", "img_url": "https://images.c-span.org/Files/12b/20160409203659001_hd.jpg/Thumbs/height.200.no_border.width.200.jpg"},
+    {"id": "Missy Ryan", "publication": "Washington Post", "img_url": "http://www.wfpg.org/assets/media/2011-12-7Libya1.jpg"},
+    {"id": "Sandhya Somashekhar", "publication": "Washington Post", "img_url": "https://img.washingtonpost.com/pbox.php?url=http://img.washingtonpost.com/news/national/wp-content/uploads/sites/9/2014/05/Sandhya-Somashekhar.jpg&w=1484&op=resize&opt=1&filter=antialias&t=20170517"},
+    {"id": "Matea Gold", "publication": "Washington Post", "img_url": "https://img.washingtonpost.com/pbox.php?url=http://wp-eng-static.washingtonpost.com/author_images/goldmj1.jpg?ts=1415914284151&w=1484&op=resize&opt=1&filter=antialias&t=20170517"},
+    {"id": "Karen Tumulty", "publication": "Washington Post", "img_url": "https://www.washingtonpost.com/wp-apps/imrs.php?src=http://wp-eng-static.washingtonpost.com/author_images/tumultyke.jpg?ts=1409841361037&w=90&h=90"},
+    {"id": "James Hohmann", "publication": "Washington Post", "img_url": "http://wpr-public.s3.amazonaws.com/wprorg/s3fs-public/images/bios/JamesHohman.jpg"},
+    {"id": "Robert Costa", "publication": "Washington Post", "img_url": "https://img.washingtonpost.com/pbox.php?url=http://wp-eng-static.washingtonpost.com/author_images/costar.jpeg?ts=1436450255109&w=1484&op=resize&opt=1&filter=antialias&t=20170517"},
+    {"id": "John Wagner", "publication": "Washington Post", "img_url": "https://pbs.twimg.com/profile_images/551949028754071552/sJLxqWYv.jpeg"},
+    {"id": "Jenna Johnson", "publication": "Washington Post", "img_url": "http://static.cision.com/us/wp-content/uploads/2014/02/Jenna-Johnson1.jpg"}
   ],
   "employments": [
     {"reporter": "Ken Vogel", "publication": "Politico", "start": 2006, "end": 2017},
@@ -35,10 +63,18 @@
     {"reporter": "Shane Goldmacher", "publication": "Politico", "start": 2015, "end": 2017},
     {"reporter": "Maggie Haberman", "publication": "Politico", "start": 2010, "end": 2015},
     {"reporter": "Jonathan Martin", "publication": "Politico", "start": 2007, "end": 2013},
-    {"reporter": "Alex Burns", "publication": "Politico", "start": 2008, "end": 2014}
+    {"reporter": "Alex Burns", "publication": "Politico", "start": 2008, "end": 2014},
+    {"reporter": "Eric Lipton", "publication": "Washington Post"},
+    {"reporter": "Elisabeth Bumiller", "publication": "Washington Post"},
+    {"reporter": "Peter Baker", "publication": "Washington Post"},
+    {"reporter": "Sharon LaFraniere", "publication": "Washington Post"},
+    {"reporter": "James Hohmann", "publication": "Politico"},
+    {"reporter": "Matt Apuzzo", "publication": "Associated Press"}
   ],
   "publications": [
     {"id": "Politico", "color": "darkred"},
-    {"id": "New York Times", "color": "gray"}
+    {"id": "New York Times", "color": "gray"},
+    {"id": "Washington Post", "color": "darkblue"},
+    {"id": "Associated Press", "color": "red"}
   ]
 }
