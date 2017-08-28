@@ -5,11 +5,13 @@ export const appendJournalists = (visualization, data, publicationColors, width,
 
   const nodes = visualization
       .selectAll("g.nodes")
-      .data(data.reporters)
+      .data(data.reporters, (d) => d.id)
       .enter()
       .append("g")
+        // .attr('fx', 2500)
+        // .attr('fy', 2500)
         .attr("class", "nodes")
-        // .attr('transform', 'translate(' + height*(-2/5) + ',' + width*(-2/5) + ')');
+        .attr('transform', 'translate(' + height*(-2/5) + ',' + width*(-2/5) + ')');
 
   const circles = appendCircles(nodes, publicationColors);
 

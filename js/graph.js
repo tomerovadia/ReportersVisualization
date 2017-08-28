@@ -16,7 +16,7 @@ export default (svg, container, width, height) => {
 
   var simulation = d3.forceSimulation()
       .force("link", d3.forceLink().id(function(d) { return d.id; }) )
-      .force("charge", d3.forceManyBody().strength(-3000) )
+      .force("charge", d3.forceManyBody().strength(-3000).distanceMin(15) )
       .force("center", d3.forceCenter(width/2, height/2) );
 
 
@@ -54,9 +54,11 @@ export default (svg, container, width, height) => {
         .force("link")
         .links(linkData)
         .distance((d) => d.value)
-        .strength((d) => d.current === true ? 3 : 1.75);
+        .strength((d) => d.current === true ? 3.5 : 3.5);
 
-    simulation.velocityDecay(0.2);
+    simulation.alpha(0.1)
+    simulation.alphaDecay(0.008)
+    // simulation.velocityDecay(0.1)
 
 
 
@@ -91,6 +93,7 @@ export default (svg, container, width, height) => {
   }
 
   function nodedragged(d) {
+    console.log('nodedragged')
     d.fx = d3.event.x;
     d.fy = d3.event.y;
   }

@@ -6,7 +6,9 @@ export const appendPublications = (svg, visualization, data, width, height) => {
       .enter()
       .append('g')
       .classed('publication', true)
-      // .attr('transform', 'translate(' + height*(-2/5) + ',' + width*(-2/5) + ')');
+      .attr('transform', 'translate(' + height*(-2/5) + ',' + width*(-2/5) + ')');
+      // .attr('fx', 2500)
+      // .attr('fy', 2500)
       // .attr('transform', (d, i) => {
       //   d.x = (i+3)**5;
       //   d.y = 250;
@@ -34,10 +36,10 @@ const appendTextToPublications = (publications) => {
       .text((d) => d.id)
       .style('font-family', 'Arial')
       .style("font-size", "11px")
-      .style("fill", "white")
+      .style("fill", (d) => d.textColor || "white")
       .attr("text-anchor", "middle")
       .style("font-weight", "600")
-      .style("text-shadow", "1px 1px 2px black");
+      .style("text-shadow", (d) => d.textShadowColor ? `1px 1px 2px ${d.textShadowColor}` : "1px 1px 2px black");
 }
 
 const prepareCircleImages = (svg, data) => {

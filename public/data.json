@@ -1,5 +1,13 @@
 {
   "reporters": [
+    {"id": "Anna Palmer", "publication": "Politico", "img_url": "http://s3-origin-images.politico.com/2014/02/25/annaheadshot_288.jpg"},
+    {"id": "Jake Sherman", "publication": "Politico", "img_url": "http://s3-origin-images.politico.com/2014/02/25/jakeheadshot_288.jpg"},
+    {"id": "Alex Isenstadt", "publication": "Politico", "img_url": "http://s3-origin-images.politico.com/2014/08/15/20140813js_alex_isenstadt_015.jpg"},
+    {"id": "Hadas Gold", "publication": "Politico", "img_url": "http://images.tritondigitalcms.com/6616/sites/238/2017/05/02194043/hadas_gold_005.jpg"},
+    {"id": "John Bresnahan", "publication": "Politico", "img_url": "http://s3-origin-images.politico.com/johnbredgnahan.jpg"},
+    {"id": "Josh Gerstein", "publication": "Politico", "img_url": "http://s3-origin-images.politico.com/reporter/online_josh_gerstein.jpg"},
+    {"id": "Seung Min Kim", "publication": "Politico", "img_url": "http://images.politico.com/global/arena/100108_seungminkim_photo.jpg"},
+    {"id": "Burgess Everett", "publication": "Politico", "img_url": "http://s3-origin-images.politico.com/2013/10/24/20131024-burgess-everett11-web.jpg"},
     {"id": "Maggie Haberman", "publication": "New York Times", "img_url": "https://longform.org/uploads/post/key_image/11006/podcast_maggie.jpg"},
     {"id": "Glenn Thrush", "publication": "New York Times", "img_url": "http://images.politico.com/global/081211_glennthrush.jpg"},
     {"id": "Shane Goldmacher", "publication": "New York Times", "img_url": "https://www.nationaljournal.com/media/media/2013/09/25/author-146_PuIAtZl.jpg.2600x2600.square.jpg"},
@@ -23,14 +31,6 @@
     {"id": "Eric Lipton", "publication": "New York Times", "img_url": "https://pbs.twimg.com/profile_images/641671803291631617/zQ3j92jI.jpg"},
     {"id": "Sharon LaFraniere", "publication": "New York Times", "img_url": "https://pbs.twimg.com/profile_images/847629227910324228/evRGJSbx.jpg"},
     {"id": "Matt Apuzzo", "publication": "New York Times", "img_url": "http://www.pulitzer.org/files/2012/apuzzo2012.jpg"},
-    {"id": "Anna Palmer", "publication": "Politico", "img_url": "http://s3-origin-images.politico.com/2014/02/25/annaheadshot_288.jpg"},
-    {"id": "Jake Sherman", "publication": "Politico", "img_url": "http://s3-origin-images.politico.com/2014/02/25/jakeheadshot_288.jpg"},
-    {"id": "Alex Isenstadt", "publication": "Politico", "img_url": "http://s3-origin-images.politico.com/2014/08/15/20140813js_alex_isenstadt_015.jpg"},
-    {"id": "Hadas Gold", "publication": "Politico", "img_url": "http://images.tritondigitalcms.com/6616/sites/238/2017/05/02194043/hadas_gold_005.jpg"},
-    {"id": "John Bresnahan", "publication": "Politico", "img_url": "http://s3-origin-images.politico.com/johnbredgnahan.jpg"},
-    {"id": "Josh Gerstein", "publication": "Politico", "img_url": "http://s3-origin-images.politico.com/reporter/online_josh_gerstein.jpg"},
-    {"id": "Seung Min Kim", "publication": "Politico", "img_url": "http://images.politico.com/global/arena/100108_seungminkim_photo.jpg"},
-    {"id": "Burgess Everett", "publication": "Politico", "img_url": "http://s3-origin-images.politico.com/2013/10/24/20131024-burgess-everett11-web.jpg"},
     {"id": "Peter Finn", "publication": "Washington Post", "img_url": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://s3.amazonaws.com/arc-authors/washpost/fc7fbbd7-2e0c-4d0f-acd8-bf3c938b0495.jpeg&w=90&h=90"},
     {"id": "Carol Morello", "publication": "Washington Post", "img_url": "https://img.washingtonpost.com/pbox.php?url=http://img.washingtonpost.com/news/local/wp-content/uploads/sites/2/2014/05/10_110_20_1056.jpg&w=1484&op=resize&opt=1&filter=antialias&t=20170517"},
     {"id": "Sari Horwitz", "publication": "Washington Post", "img_url": "https://www.washingtonpost.com/wp-apps/imrs.php?src=http://wp-eng-static.washingtonpost.com/author_images/horwitzs.jpg?ts=1411921983534&w=90&h=90"},
@@ -56,7 +56,17 @@
     {"id": "Robert Costa", "publication": "Washington Post", "img_url": "https://img.washingtonpost.com/pbox.php?url=http://wp-eng-static.washingtonpost.com/author_images/costar.jpeg?ts=1436450255109&w=1484&op=resize&opt=1&filter=antialias&t=20170517"},
     {"id": "John Wagner", "publication": "Washington Post", "img_url": "https://pbs.twimg.com/profile_images/551949028754071552/sJLxqWYv.jpeg"},
     {"id": "Jenna Johnson", "publication": "Washington Post", "img_url": "http://static.cision.com/us/wp-content/uploads/2014/02/Jenna-Johnson1.jpg"},
-    {"id": "David Fahrenthold", "publication": "Washington Post", "img_url": "https://pbs.twimg.com/profile_images/776115856585678848/P4s1nx_z.jpg"}
+    {"id": "David Fahrenthold", "publication": "Washington Post", "img_url": "https://pbs.twimg.com/profile_images/776115856585678848/P4s1nx_z.jpg"},
+    {"id": "Kate Nocera", "publication": "Buzzfeed", "img_url": "http://images.politico.com/global/reporter/kate_nocera_online.jpg"},
+    {"id": "Matt Berman", "publication": "Buzzfeed", "img_url": "https://media.licdn.com/media/p/4/000/170/103/10359fa.jpg"},
+    {"id": "Katherine Miller", "publication": "Buzzfeed", "img_url": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/000/214/080/1f5246a.jpg"},
+    {"id": "Jose A. DelReal", "publication": "New York Times", "img_url": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/2/000/0d6/0eb/05c0820.jpg"},
+    {"id": "Sarah Mimms", "publication": "Buzzfeed", "img_url": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/3/000/2b2/293/1539636.jpg"},
+    {"id": "Adrian Carrasquillo", "publication": "Buzzfeed", "img_url": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/2/005/07c/1be/0dccba9.jpg"},
+    {"id": "Ruby Cramer", "publication": "Buzzfeed", "img_url": "https://img.buzzfeed.com/buzzfeed-static/static/2015-05/12/13/user_images/webdr08/rubycramer-v2-6887-1431451646-1_large.jpg"},
+    {"id": "Chris Geidner", "publication": "Buzzfeed", "img_url": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAf7AAAAJDMzOTg4YTE0LWFkNDktNDZiZC1iMDdkLTU3ZTgxZDY5NmY5OA.jpg"},
+    {"id": "Henry J. Gomez", "publication": "Buzzfeed", "img_url": "https://img.buzzfeed.com/buzzfeed-static/static/2017-04/3/14/user_images/buzzfeed-prod-fastlane-03/henrygomez-v2-11795-1491244381-3_large.jpg"},
+    {"id": "Alexis Levinson", "publication": "Buzzfeed", "img_url": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/8/000/1af/349/3cd7696.jpg"}
   ],
   "employments": [
     {"reporter": "Ken Vogel", "publication": "Politico", "start": 2006, "end": 2017},
@@ -70,12 +80,30 @@
     {"reporter": "Peter Baker", "publication": "Washington Post"},
     {"reporter": "Sharon LaFraniere", "publication": "Washington Post"},
     {"reporter": "James Hohmann", "publication": "Politico"},
-    {"reporter": "Matt Apuzzo", "publication": "Associated Press"}
+    {"reporter": "Matt Apuzzo", "publication": "Associated Press"},
+    {"reporter": "Kate Nocera", "publication": "Politico"},
+    {"reporter": "Katherine Miller", "publication": "Washington Free Beacon"},
+    {"reporter": "Matt Berman", "publication": "National Journal"},
+    {"reporter": "Matt Berman", "publication": "Politico"},
+    {"reporter": "Jose A. DelReal", "publication": "Politico"},
+    {"reporter": "Jose A. DelReal", "publication": "Washington Post"},
+    {"reporter": "Sarah Mimms", "publication": "VICE Media"},
+    {"reporter": "Alexis Levinson", "publication": "National Review"},
+    {"reporter": "Alexis Levinson", "publication": "Roll Call"},
+    {"reporter": "Alexis Levinson", "publication": "Daily Caller"},
+    {"reporter": "John Bresnahan", "publication": "Roll Call"}
   ],
   "publications": [
     {"id": "Politico", "color": "darkred"},
     {"id": "New York Times", "color": "gray"},
     {"id": "Washington Post", "color": "darkblue"},
-    {"id": "Associated Press", "color": "red"}
+    {"id": "Associated Press", "color": "red"},
+    {"id": "Buzzfeed", "color": "yellow", "textColor": "red", "textShadowColor": "white"},
+    {"id": "National Journal", "color": "#8d734a"},
+    {"id": "Washington Free Beacon", "color": "#5b5b5c"},
+    {"id": "VICE Media", "color": "black"},
+    {"id": "National Review", "color": "black"},
+    {"id": "Roll Call", "color": "#3e4e65"},
+    {"id": "Daily Caller", "color": "#b93c34"}
   ]
 }

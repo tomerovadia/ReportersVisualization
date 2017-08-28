@@ -1,5 +1,5 @@
 {
-  "name": "GoogleTrendsExplorer",
+  "name": "JournalismGraph",
   "version": "1.0.0",
   "description": "## Background",
   "main": "webpack.config.js",
@@ -16,8 +16,7 @@
     "postinstall": "webpack"
   },
   "repository": {
-    "type": "git",
-    "url": "https://github.com/tomerovadia/GoogleTrendsExplorer/"
+    "type": "git"
   },
   "keywords": [],
   "author": "",
