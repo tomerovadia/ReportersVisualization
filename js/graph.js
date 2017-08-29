@@ -19,16 +19,13 @@ export default (svg, container, width, height) => {
       .force("charge", d3.forceManyBody().strength(-3000).distanceMin(15) )
       .force("center", d3.forceCenter(width/2, height/2) );
 
-
   d3.json("data.json", function(error, graph) {
 
     const publicationColors = getPublicationColors(graph);
 
-
     if (error) throw error;
 
     const linkData = prepareLinkData(graph, publicationColors);
-
 
     const links = appendLinks(visualization, linkData);
     const publications = appendPublications(svg, visualization, graph, width, height);
@@ -40,11 +37,11 @@ export default (svg, container, width, height) => {
           .on("drag", nodedragged)
           .on("end", nodedragended));
 
-    // publications
-    //   .call(d3.drag()
-    //       .on("start", nodedragstarted)
-    //       .on("drag", nodedragged)
-    //       .on("end", nodedragended));
+    publications
+      .call(d3.drag()
+          .on("start", nodedragstarted)
+          .on("drag", nodedragged)
+          .on("end", nodedragended));
 
     simulation
         .nodes(graph.reporters.concat(graph.publications))

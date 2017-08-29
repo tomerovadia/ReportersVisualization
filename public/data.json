@@ -3,7 +3,7 @@
     {"id": "Anna Palmer", "publication": "Politico", "img_url": "http://s3-origin-images.politico.com/2014/02/25/annaheadshot_288.jpg"},
     {"id": "Jake Sherman", "publication": "Politico", "img_url": "http://s3-origin-images.politico.com/2014/02/25/jakeheadshot_288.jpg"},
     {"id": "Alex Isenstadt", "publication": "Politico", "img_url": "http://s3-origin-images.politico.com/2014/08/15/20140813js_alex_isenstadt_015.jpg"},
-    {"id": "Hadas Gold", "publication": "Politico", "img_url": "http://images.tritondigitalcms.com/6616/sites/238/2017/05/02194043/hadas_gold_005.jpg"},
+    {"id": "Hadas Gold", "publication": "CNN", "img_url": "http://images.tritondigitalcms.com/6616/sites/238/2017/05/02194043/hadas_gold_005.jpg"},
     {"id": "John Bresnahan", "publication": "Politico", "img_url": "http://s3-origin-images.politico.com/johnbredgnahan.jpg"},
     {"id": "Josh Gerstein", "publication": "Politico", "img_url": "http://s3-origin-images.politico.com/reporter/online_josh_gerstein.jpg"},
     {"id": "Seung Min Kim", "publication": "Politico", "img_url": "http://images.politico.com/global/arena/100108_seungminkim_photo.jpg"},
@@ -66,7 +66,11 @@
     {"id": "Ruby Cramer", "publication": "Buzzfeed", "img_url": "https://img.buzzfeed.com/buzzfeed-static/static/2015-05/12/13/user_images/webdr08/rubycramer-v2-6887-1431451646-1_large.jpg"},
     {"id": "Chris Geidner", "publication": "Buzzfeed", "img_url": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAf7AAAAJDMzOTg4YTE0LWFkNDktNDZiZC1iMDdkLTU3ZTgxZDY5NmY5OA.jpg"},
     {"id": "Henry J. Gomez", "publication": "Buzzfeed", "img_url": "https://img.buzzfeed.com/buzzfeed-static/static/2017-04/3/14/user_images/buzzfeed-prod-fastlane-03/henrygomez-v2-11795-1491244381-3_large.jpg"},
-    {"id": "Alexis Levinson", "publication": "Buzzfeed", "img_url": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/8/000/1af/349/3cd7696.jpg"}
+    {"id": "Alexis Levinson", "publication": "Buzzfeed", "img_url": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/8/000/1af/349/3cd7696.jpg"},
+    {"id": "Emma Loop", "publication": "Buzzfeed", "img_url": "https://img.buzzfeed.com/buzzfeed-static/static/2016-01/11/18/user_images/webdr08/emmaloop-v2-1174-1452556107-5_large.jpg"},
+    {"id": "Tarini Parti", "publication": "Buzzfeed", "img_url": "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAb8AAAAJDYwZDk2NjNkLTcwMjEtNGU2MC04ZWQ4LWIzMmRlZjE0MGNkMQ.jpg"},
+    {"id": "Steven Perlberg", "publication": "Buzzfeed", "img_url": "https://img.buzzfeed.com/buzzfeed-static/static/2017-01/30/13/user_images/buzzfeed-prod-fastlane-03/stevenperlberg-v2-8312-1485801306-0_large.jpg"},
+    {"id": "Dylan Byers", "publication": "CNN", "img_url": "http://s3.amazonaws.com/media.muckrack.com/mrdaily/site/images/2015/09/dylanbyers_1441202775000.jpg"}
   ],
   "employments": [
     {"reporter": "Ken Vogel", "publication": "Politico", "start": 2006, "end": 2017},
@@ -91,19 +95,27 @@
     {"reporter": "Alexis Levinson", "publication": "National Review"},
     {"reporter": "Alexis Levinson", "publication": "Roll Call"},
     {"reporter": "Alexis Levinson", "publication": "Daily Caller"},
-    {"reporter": "John Bresnahan", "publication": "Roll Call"}
+    {"reporter": "John Bresnahan", "publication": "Roll Call"},
+    {"reporter": "Tarini Parti", "publication": "Politico"},
+    {"reporter": "Steven Perlberg", "publication": "Wall Street Journal"},
+    {"reporter": "Steven Perlberg", "publication": "Business Insider"},
+    {"reporter": "Dylan Byers", "publication": "Politico"},
+    {"reporter": "Hadas Gold", "publication": "Politico"}
   ],
   "publications": [
     {"id": "Politico", "color": "darkred"},
     {"id": "New York Times", "color": "gray"},
     {"id": "Washington Post", "color": "darkblue"},
-    {"id": "Associated Press", "color": "red"},
     {"id": "Buzzfeed", "color": "yellow", "textColor": "red", "textShadowColor": "white"},
     {"id": "National Journal", "color": "#8d734a"},
     {"id": "Washington Free Beacon", "color": "#5b5b5c"},
     {"id": "VICE Media", "color": "black"},
-    {"id": "National Review", "color": "black"},
+    {"id": "National Review", "color": "darkred"},
     {"id": "Roll Call", "color": "#3e4e65"},
-    {"id": "Daily Caller", "color": "#b93c34"}
+    {"id": "Daily Caller", "color": "#b93c34"},
+    {"id": "Wall Street Journal", "color": "#000066"},
+    {"id": "Business Insider", "color": "#185f7d"},
+    {"id": "Associated Press", "color": "red"},
+    {"id": "CNN", "color": "#cb0000"}
   ]
 }
