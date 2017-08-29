@@ -20,7 +20,8 @@ var svg = d3.select("body").append("svg")
     .attr("height", height)
   .append("g")
     .classed('viewport', true)
-    .attr('transform', 'translate(' + -1600 + ',' + -600 + ')')
+    // .attr('transform', 'translate(' + -1600 + ',' + -600 + ')')
+    .attr('transform', 'translate(' + height*(-2/5) + ',' + width*(-2/5) + ')')
     // .attr("transform", "translate(" + margin.left + "," + margin.right + ")")
     .call(zoom);
 
