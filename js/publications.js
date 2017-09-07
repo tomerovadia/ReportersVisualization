@@ -21,10 +21,6 @@ export const appendPublications = (svg, visualization, data, width, height) => {
   appendCirclesToPublications(publications);
   appendTextToPublications(publications);
 
-  // d3.select('#PoliticoPublication')
-  //     .attr('data-intro', 'Large circles are publications.')
-  //     .attr('data-step', 1);
-
   return publications;
 }
 

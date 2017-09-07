@@ -24,10 +24,6 @@ export const appendJournalists = (visualization, data, publicationColors, width,
 
   appendTextToJournalists(nodes);
 
-  // d3.select('#GlennThrushNode')
-  //     .attr('data-intro', 'Small circles are journalists.')
-  //     .attr('data-step', 2);
-
   return nodes;
 }
 
