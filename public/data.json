@@ -81,7 +81,11 @@
     {"id": "Gabriel Debenedetti", "publication": "Politico", "img_url": "http://static.politico.com/5d/25/38662734490bb1679591c5243f47/dkf3rhso-400x400-1.jpg"},
     {"id": "Daniel Strauss", "publication": "Politico", "img_url": "http://static.politico.com/92/f7/7a3c6e5d4a24b760ec1e3ee665e8/avatar.jpg"},
     {"id": "Scott Wong", "publication": "The Hill", "img_url": "http://images.politico.com/global/reporter/scott_wong_online.jpg"},
-    {"id": "Heather Caygle", "publication": "The Hill", "img_url": "http://static.politico.com/0d/d4/c260caf7427db8376871c1063f96/20160711-heather-caygle-004-2.jpg"}
+    {"id": "Heather Caygle", "publication": "The Hill", "img_url": "http://static.politico.com/0d/d4/c260caf7427db8376871c1063f96/20160711-heather-caygle-004-2.jpg"},
+    {"id": "Mike Allen", "publication": "Axios", "img_url": "https://resize.rbl.ms/simage/https%3A%2F%2Fassets.rbl.ms%2F9497810%2F210x.jpg/2000%2C2000/OJukf3dQExPbsIA0/img.jpg"},
+    {"id": "David Nather", "publication": "Axios", "img_url": "https://resize.rbl.ms/simage/https%3A%2F%2Fassets.rbl.ms%2F9360751%2F210x.jpg/2000%2C2000/snOYTY4iiRXqcQPg/img.jpg"},
+    {"id": "Dan Primack", "publication": "Axios", "img_url": "https://www.axios.com/static/img/whitelabel/axios/team/DanPrimack.jpg"},
+    {"id": "Sara Fischer", "publication": "Axios", "img_url": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/4/000/17e/3fc/301750e.jpg"}
   ],
   "employments": [
     {"reporter": "Ken Vogel", "publication": "Politico", "start": 2006, "end": 2017},
@@ -127,7 +131,12 @@
     {"reporter": "Ariana Cha", "publication": "San Jose Mercury News"},
     {"reporter": "Missy Ryan", "publication": "Reuters"},
     {"reporter": "Dan Balz", "publication": "National Journal"},
-    {"reporter": "Glenn Kessler", "publication": "Newsday"}
+    {"reporter": "Glenn Kessler", "publication": "Newsday"},
+    {"reporter": "Mike Allen", "publication": "Politico"},
+    {"reporter": "Mike Allen", "publication": "Time"},
+    {"reporter": "David Nather", "publication": "Politico"},
+    {"reporter": "Sara Fischer", "publication": "CNN"},
+    {"reporter": "Dan Primack", "publication": "Fortune"}
   ],
   "publications": [
     {"id": "Politico", "color": "darkred"},
@@ -152,6 +161,8 @@
     {"id": "Bloomberg", "color": "#2b00f7"},
     {"id": "Time", "color": "#e61600"},
     {"id": "San Jose Mercury News", "color": "#3a6496"},
-    {"id": "Newsday", "color": "#0084bf"}
+    {"id": "Newsday", "color": "#0084bf"},
+    {"id": "Axios", "textColor": "#008dc8"},
+    {"id": "Fortune", "textColor": "#ec412e"}
   ]
 }

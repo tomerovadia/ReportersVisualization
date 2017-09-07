@@ -10,6 +10,7 @@ export const appendJournalists = (visualization, data, publicationColors, width,
       .append("g")
         // .attr('fx', 2500)
         // .attr('fy', 2500)
+        .attr('id', (d) => `${d.id.split(' ').join('')}Node`)
         .attr("class", "nodes")
         .attr('transform', 'translate(' + height*(-2/5) + ',' + width*(-2/5) + ')');
 
@@ -22,6 +23,11 @@ export const appendJournalists = (visualization, data, publicationColors, width,
             .text(function(d) { return d.id; });
 
   appendTextToJournalists(nodes);
+
+  d3.select('#GlennThrushNode')
+    .select('circle')
+      .attr('data-intro', 'Small circles are journalists.')
+      .attr('data-step', 2);
 
   return nodes;
 }

@@ -5,7 +5,9 @@ export const appendPublications = (svg, visualization, data, width, height) => {
       .data(data.publications, (d) => d.id)
       .enter()
       .append('g')
+      .attr('id', (d) => d.id)
       .classed('publication', true)
+      .attr('id', (d) => d.id)
       .attr('transform', 'translate(' + height*(-2/5) + ',' + width*(-2/5) + ')');
       // .attr('fx', 2500)
       // .attr('fy', 2500)
@@ -18,6 +20,11 @@ export const appendPublications = (svg, visualization, data, width, height) => {
   appendCirclesToPublications(publications);
   appendTextToPublications(publications);
   prepareCircleImages(svg, data);
+
+  d3.select('#Politico')
+    .select('circle')
+      .attr('data-intro', 'Large circles are publications.')
+      .attr('data-step', 1);
 
   return publications;
 }

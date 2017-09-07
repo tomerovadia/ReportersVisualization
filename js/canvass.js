@@ -1,4 +1,5 @@
 const d3 = require('d3');
+var introJs = require("intro.js");
 import renderGraph from './graph';
 
 var width = 5000,
@@ -91,3 +92,7 @@ function zoomed() {
 // }
 
 renderGraph(svg, container, width, height);
+
+setTimeout(() => {
+  introJs.introJs().start();
+}, 5500)

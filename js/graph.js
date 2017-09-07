@@ -64,7 +64,6 @@ export default (svg, container, width, height) => {
 
 
 
-
     function ticked() {
 
       publications
