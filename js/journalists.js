@@ -57,9 +57,9 @@ const appendTextToJournalists = (nodes) => {
   return nodes
        .append('text')
          .text((d) => d.id)
-         .style('font-family', 'Arial')
+         .style('font-family', 'Roboto')
          .style("font-size", "9px")
-         .style("font-weight", "600")
+         .style("font-weight", "700")
          .attr("text-anchor", "middle")
          .style("text-shadow", "1px 1px 2px white")
          .attr("transform", "translate(0,20)");
