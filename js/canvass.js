@@ -98,6 +98,8 @@ setTimeout(() => {
     exitOnOverlayClick: true,
     showStepNumbers: false,
     showProgress: true,
+    hideNext: true,
+    hidePrev: true,
     steps: [
       {intro: "<div style='font-size:15px;'><h3><b>Journalist Graph</b></h3>This visualization depicts relationships between journalists.<br><br>It's a work in progress, so please send me feedback at <b>tomerbovadia@gmail.com</b>. <br><br>May I take you on a tour?<br><br><i>-Tomer Ovadia</i><br><br></div>"},
       {
@@ -119,4 +121,4 @@ setTimeout(() => {
       {intro: "That should be enough to get you started. Enjoy!"},
     ]
   }).start();
-}, 3000)
+}, 2000)
