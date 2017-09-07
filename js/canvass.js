@@ -109,11 +109,11 @@ setTimeout(() => {
         element: document.querySelector('#GlennThrushNode')
       },
       {
-        intro: 'Thick, short lines connect journalists to their current media outlets.',
+        intro: 'Thick, short lines connect journalists to their <i>current</i> media outlets.',
         element: document.querySelector('#JakeShermanPoliticoLink')
       },
       {
-        intro: 'Thin, long lines connect journalists to their former media outlets.',
+        intro: 'Thin, long lines connect journalists to their <i>former</i> media outlets.',
         element: document.querySelector('#JamesHohmannPoliticoLink')
       },
       {intro: "That should be enough to get you started. Enjoy!"},
