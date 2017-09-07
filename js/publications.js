@@ -50,7 +50,7 @@ const prepareCircleImages = (svg, data) => {
 
   const patterns = defs
       .selectAll('pattern')
-      .data(data.reporters.concat(data.publications))
+      .data(data.reporters)
       .enter()
       .append("pattern")
         .attr("id", function(d){ return d.id } )
@@ -66,5 +66,5 @@ const prepareCircleImages = (svg, data) => {
         .attr("preserveAspectRatio", "none")
         .attr("height", 100)
         .attr("width", 100)
-        .attr("xlink:href", function(d){ return d.img_url});
+        .attr("xlink:href", function(d){ return `../mugshots/${d.id}.jpg`});
 }

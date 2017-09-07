@@ -1,0 +1,103 @@
+require 'open-uri'
+require 'byebug'
+
+data = [
+  # {"id": "Anna Palmer", "publication": "Politico", "img_url": "http://s3-origin-images.politico.com/2014/02/25/annaheadshot_288.jpg"},
+  # {"id": "Jake Sherman", "publication": "Politico", "img_url": "http://s3-origin-images.politico.com/2014/02/25/jakeheadshot_288.jpg"},
+  # {"id": "Alex Isenstadt", "publication": "Politico", "img_url": "http://s3-origin-images.politico.com/2014/08/15/20140813js_alex_isenstadt_015.jpg"},
+  # {"id": "Hadas Gold", "publication": "CNN", "img_url": "http://images.tritondigitalcms.com/6616/sites/238/2017/05/02194043/hadas_gold_005.jpg"},
+  # {"id": "John Bresnahan", "publication": "Politico", "img_url": "http://s3-origin-images.politico.com/johnbredgnahan.jpg"},
+  # {"id": "Josh Gerstein", "publication": "Politico", "img_url": "http://s3-origin-images.politico.com/reporter/online_josh_gerstein.jpg"},
+  # {"id": "Seung Min Kim", "publication": "Politico", "img_url": "http://images.politico.com/global/arena/100108_seungminkim_photo.jpg"},
+  # {"id": "Burgess Everett", "publication": "Politico", "img_url": "http://s3-origin-images.politico.com/2013/10/24/20131024-burgess-everett11-web.jpg"},
+  # {"id": "Maggie Haberman", "publication": "New York Times", "img_url": "https://longform.org/uploads/post/key_image/11006/podcast_maggie.jpg"},
+  # {"id": "Glenn Thrush", "publication": "New York Times", "img_url": "http://images.politico.com/global/081211_glennthrush.jpg"},
+  # {"id": "Shane Goldmacher", "publication": "New York Times", "img_url": "https://www.nationaljournal.com/media/media/2013/09/25/author-146_PuIAtZl.jpg.2600x2600.square.jpg"},
+  # {"id": "Jonathan Martin", "publication": "New York Times", "img_url": "http://www.washingtonspeakers.com/images/photos/sp1/7436.jpg"}
+  {"id": "Ken Vogel", "publication": "New York Times", "img_url": "http://www.nytco.com/wp-content/uploads/Ken-Vogel.jpg"},
+  {"id": "Peter Baker", "publication": "New York Times", "img_url": "http://www.nytco.com/wp-content/uploads/peter-baker.jpg"},
+  {"id": "Elisabeth Bumiller", "publication": "New York Times", "img_url": "https://images.gr-assets.com/authors/1411083412p5/27614.jpg"},
+  {"id": "Michael Gordon", "publication": "New York Times", "img_url": "http://graphics.nytimes.com/images/2002/04/02/international/michaelgordon.jpg"},
+  {"id": "Mark Mazetti", "publication": "New York Times", "img_url": "http://media.npr.org/assets/artslife/arts/2010/07/wikileaks-afghanistan/mark-mazzetti-06699107392f8d22606b4e708b0073d13b27985b-s300-c85.jpg"},
+  {"id": "James Risen", "publication": "New York Times", "img_url": "http://www.slate.com/content/dam/slate/articles/news_and_politics/view_from_chicago/2014/01/140116_VOC_JamesRisen.jpg.CROP.promo-mediumlarge.jpg"},
+  {"id": "David E. Sanger", "publication": "New York Times", "img_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/David_E._Sanger_2011_05.jpg/220px-David_E._Sanger_2011_05.jpg"},
+  {"id": "Carl Hulse", "publication": "New York Times", "img_url": "https://static01.nyt.com/images/2014/09/19/blogs/hulse/hulse-blogSmallInline.jpg"},
+  {"id": "Eric Schmitt", "publication": "New York Times", "img_url": "http://jsk.stanford.edu/jsk/m/2012/02/f07schmitt.jpg"},
+  {"id": "Alan Rappeport", "publication": "New York Times", "img_url": "https://static01.nyt.com/images/2016/02/19/us/scotus-headshot-rappeport/scotus-headshot-rappeport-thumbLarge.jpg"},
+  {"id": "Anna Dubenko", "publication": "New York Times", "img_url": "https://pbs.twimg.com/profile_images/652620189473873921/soQfkig7.jpg"},
+  {"id": "Emily Steel", "publication": "New York Times", "img_url": "http://mediashift.org/wp-content/uploads/sites/8/import/i-dfd2a518518406007aa410f85adde610-emily%20steel%20long%20hair.jpg"},
+  {"id": "Alex Burns", "publication": "New York Times", "img_url": "http://pavementpieces.com/wp-content/uploads/2012/11/alexander_burns_online.jpg"},
+  {"id": "Michael Shear", "publication": "New York Times", "img_url": "http://harvardpolitics.com/blog/wp-content/uploads/2012/11/0826shear.jpg"},
+  {"id": "Sewell Chan", "publication": "New York Times", "img_url": "https://pbs.twimg.com/profile_images/2330990924/bjdp6snaoufqs4maaxox.jpeg"},
+  {"id": "Jeremy W. Peters", "publication": "New York Times", "img_url": "http://images.rcp.realclearpolitics.com/294741.jpg"},
+  {"id": "Eric Lipton", "publication": "New York Times", "img_url": "https://pbs.twimg.com/profile_images/641671803291631617/zQ3j92jI.jpg"},
+  {"id": "Sharon LaFraniere", "publication": "New York Times", "img_url": "https://pbs.twimg.com/profile_images/847629227910324228/evRGJSbx.jpg"},
+  {"id": "Matt Apuzzo", "publication": "New York Times", "img_url": "http://www.pulitzer.org/files/2012/apuzzo2012.jpg"},
+  {"id": "Peter Finn", "publication": "Washington Post", "img_url": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://s3.amazonaws.com/arc-authors/washpost/fc7fbbd7-2e0c-4d0f-acd8-bf3c938b0495.jpeg&w=90&h=90"},
+  {"id": "Carol Morello", "publication": "Washington Post", "img_url": "https://img.washingtonpost.com/pbox.php?url=http://img.washingtonpost.com/news/local/wp-content/uploads/sites/2/2014/05/10_110_20_1056.jpg&w=1484&op=resize&opt=1&filter=antialias&t=20170517"},
+  {"id": "Sari Horwitz", "publication": "Washington Post", "img_url": "https://www.washingtonpost.com/wp-apps/imrs.php?src=http://wp-eng-static.washingtonpost.com/author_images/horwitzs.jpg?ts=1411921983534&w=90&h=90"},
+  {"id": "Greg Jaffe", "publication": "Washington Post", "img_url": "https://journalism.missouri.edu/wp-content/uploads/2013/02/Greg-Jaffe.jpg"},
+  {"id": "Emily Wax", "publication": "Washington Post", "img_url": "https://pbs.twimg.com/profile_images/501796131635204096/LF9m3ZQu_400x400.jpeg"},
+  {"id": "Lyndsey Layton", "publication": "Washington Post", "img_url": "https://pbs.twimg.com/profile_images/1330352773/filefoto.jpg"},
+  {"id": "Robert Barnes", "publication": "Washington Post", "img_url": "https://pbs.twimg.com/profile_images/378800000082664229/d1aa41b411da85811704203729a25ff0_400x400.jpeg"},
+  {"id": "Ariana Cha", "publication": "Washington Post", "img_url": "https://pbs.twimg.com/profile_images/3321113251/2da8d6bc121a378a8adf71716b3bced0_400x400.jpeg"},
+  {"id": "Greg Miller", "publication": "Washington Post", "img_url": "https://www.washingtonpost.com/wp-apps/imrs.php?src=http://wp-eng-static.washingtonpost.com/author_images/millergp.jpg?ts=1441919004899&w=90&h=90"},
+  {"id": "Glenn Kessler", "publication": "Washington Post", "img_url": "https://pbs.twimg.com/profile_images/782334896798851072/Sv6ST6cw.jpg"},
+  {"id": "Elise Viebeck", "publication": "Washington Post", "img_url": "https://pbs.twimg.com/profile_images/701521080763162625/uUDXEKu6_400x400.png"},
+  {"id": "Eli Saslow", "publication": "Washington Post", "img_url": "https://img.washingtonpost.com/pbox.php?url=http://wp-eng-static.washingtonpost.com/author_images/saslowee.jpg?ts=1406665637756&w=1484&op=resize&opt=1&filter=antialias&t=20170517"},
+  {"id": "Cameron Barr", "publication": "Washington Post", "img_url": "https://pbs.twimg.com/profile_images/700415429244821504/eQWUmb86.jpg"},
+  {"id": "Dan Lamothe", "publication": "Washington Post", "img_url": "http://militaryreporters.org/wp-content/uploads/Dan-Lamothe.jpg"},
+  {"id": "Dan Balz", "publication": "Washington Post", "img_url": "https://img.washingtonpost.com/pbox.php?url=http://wp-eng-static.washingtonpost.com/author_images/balzdj.jpg?ts=1470407873036&w=1484&op=resize&opt=1&filter=antialias&t=20170517"},
+  {"id": "Valerie Strauss", "publication": "Washington Post", "img_url": "https://images.c-span.org/Files/9c1/1008197-292469-1.jpg/Thumbs/height.200.no_border.width.200.jpg"},
+  {"id": "Kimberly Kindy", "publication": "Washington Post", "img_url": "https://images.c-span.org/Files/12b/20160409203659001_hd.jpg/Thumbs/height.200.no_border.width.200.jpg"},
+  {"id": "Missy Ryan", "publication": "Washington Post", "img_url": "http://www.wfpg.org/assets/media/2011-12-7Libya1.jpg"},
+  {"id": "Sandhya Somashekhar", "publication": "Washington Post", "img_url": "https://img.washingtonpost.com/pbox.php?url=http://img.washingtonpost.com/news/national/wp-content/uploads/sites/9/2014/05/Sandhya-Somashekhar.jpg&w=1484&op=resize&opt=1&filter=antialias&t=20170517"},
+  {"id": "Matea Gold", "publication": "Washington Post", "img_url": "https://img.washingtonpost.com/pbox.php?url=http://wp-eng-static.washingtonpost.com/author_images/goldmj1.jpg?ts=1415914284151&w=1484&op=resize&opt=1&filter=antialias&t=20170517"},
+  {"id": "Karen Tumulty", "publication": "Washington Post", "img_url": "https://www.washingtonpost.com/wp-apps/imrs.php?src=http://wp-eng-static.washingtonpost.com/author_images/tumultyke.jpg?ts=1409841361037&w=90&h=90"},
+  {"id": "James Hohmann", "publication": "Washington Post", "img_url": "http://wpr-public.s3.amazonaws.com/wprorg/s3fs-public/images/bios/JamesHohman.jpg"},
+  {"id": "Robert Costa", "publication": "Washington Post", "img_url": "https://img.washingtonpost.com/pbox.php?url=http://wp-eng-static.washingtonpost.com/author_images/costar.jpeg?ts=1436450255109&w=1484&op=resize&opt=1&filter=antialias&t=20170517"},
+  {"id": "John Wagner", "publication": "Washington Post", "img_url": "https://pbs.twimg.com/profile_images/551949028754071552/sJLxqWYv.jpeg"},
+  {"id": "Jenna Johnson", "publication": "Washington Post", "img_url": "http://static.cision.com/us/wp-content/uploads/2014/02/Jenna-Johnson1.jpg"},
+  {"id": "David Fahrenthold", "publication": "Washington Post", "img_url": "https://pbs.twimg.com/profile_images/776115856585678848/P4s1nx_z.jpg"},
+  {"id": "Kate Nocera", "publication": "Buzzfeed", "img_url": "http://images.politico.com/global/reporter/kate_nocera_online.jpg"},
+  {"id": "Matt Berman", "publication": "Buzzfeed", "img_url": "https://media.licdn.com/media/p/4/000/170/103/10359fa.jpg"},
+  {"id": "Katherine Miller", "publication": "Buzzfeed", "img_url": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/000/214/080/1f5246a.jpg"},
+  {"id": "Jose A. DelReal", "publication": "New York Times", "img_url": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/2/000/0d6/0eb/05c0820.jpg"},
+  {"id": "Sarah Mimms", "publication": "Buzzfeed", "img_url": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/3/000/2b2/293/1539636.jpg"},
+  {"id": "Adrian Carrasquillo", "publication": "Buzzfeed", "img_url": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/2/005/07c/1be/0dccba9.jpg"},
+  {"id": "Ruby Cramer", "publication": "Buzzfeed", "img_url": "https://img.buzzfeed.com/buzzfeed-static/static/2015-05/12/13/user_images/webdr08/rubycramer-v2-6887-1431451646-1_large.jpg"},
+  {"id": "Chris Geidner", "publication": "Buzzfeed", "img_url": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAf7AAAAJDMzOTg4YTE0LWFkNDktNDZiZC1iMDdkLTU3ZTgxZDY5NmY5OA.jpg"},
+  {"id": "Henry J. Gomez", "publication": "Buzzfeed", "img_url": "https://img.buzzfeed.com/buzzfeed-static/static/2017-04/3/14/user_images/buzzfeed-prod-fastlane-03/henrygomez-v2-11795-1491244381-3_large.jpg"},
+  {"id": "Alexis Levinson", "publication": "Buzzfeed", "img_url": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/8/000/1af/349/3cd7696.jpg"},
+  {"id": "Emma Loop", "publication": "Buzzfeed", "img_url": "https://img.buzzfeed.com/buzzfeed-static/static/2016-01/11/18/user_images/webdr08/emmaloop-v2-1174-1452556107-5_large.jpg"},
+  {"id": "Tarini Parti", "publication": "Buzzfeed", "img_url": "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAb8AAAAJDYwZDk2NjNkLTcwMjEtNGU2MC04ZWQ4LWIzMmRlZjE0MGNkMQ.jpg"},
+  {"id": "Steven Perlberg", "publication": "Buzzfeed", "img_url": "https://img.buzzfeed.com/buzzfeed-static/static/2017-01/30/13/user_images/buzzfeed-prod-fastlane-03/stevenperlberg-v2-8312-1485801306-0_large.jpg"},
+  {"id": "Dylan Byers", "publication": "CNN", "img_url": "http://s3.amazonaws.com/media.muckrack.com/mrdaily/site/images/2015/09/dylanbyers_1441202775000.jpg"},
+  {"id": "Javier Panzar", "publication": "Los Angeles Times", "img_url": "https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/2/005/015/052/1c73d5f.jpg"},
+  {"id": "Andrew Restuccia", "publication": "Politico", "img_url": "http://s3-origin-images.politico.com/2012/06/andrew_restuccia_001.jpg"},
+  {"id": "Josh Dawsey", "publication": "Politico", "img_url": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/3/000/1e4/0bd/336f8b4.jpg"},
+  {"id": "Josh Meyer", "publication": "Politico", "img_url": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/1/005/09b/39e/072ca5a.jpg"},
+  {"id": "Kyle Cheney", "publication": "Politico", "img_url": "http://s3-origin-images.politico.com/2012/08/120814_kyle_cheney_shinkle.jpg"},
+  {"id": "Carla Marinucci", "publication": "Politico", "img_url": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAA3AAAAAJGZmYzNhNjU4LTZkMTItNDQ0MC1iOWU5LTBiMDEyY2Y2MWZiNA.jpg"},
+  {"id": "Matt Friedman", "publication": "Politico", "img_url": "http://static.politico.com/32/a2/0d9ddf574a4fadbf443c4503ff4a/matt-friedman-staff-photo-2017.jpg"},
+  {"id": "Gabriel Debenedetti", "publication": "Politico", "img_url": "http://static.politico.com/5d/25/38662734490bb1679591c5243f47/dkf3rhso-400x400-1.jpg"},
+  {"id": "Daniel Strauss", "publication": "Politico", "img_url": "http://static.politico.com/92/f7/7a3c6e5d4a24b760ec1e3ee665e8/avatar.jpg"},
+  {"id": "Scott Wong", "publication": "The Hill", "img_url": "http://images.politico.com/global/reporter/scott_wong_online.jpg"},
+  {"id": "Heather Caygle", "publication": "The Hill", "img_url": "http://static.politico.com/0d/d4/c260caf7427db8376871c1063f96/20160711-heather-caygle-004-2.jpg"},
+  {"id": "Mike Allen", "publication": "Axios", "img_url": "https://resize.rbl.ms/simage/https%3A%2F%2Fassets.rbl.ms%2F9497810%2F210x.jpg/2000%2C2000/OJukf3dQExPbsIA0/img.jpg"},
+  {"id": "David Nather", "publication": "Axios", "img_url": "https://resize.rbl.ms/simage/https%3A%2F%2Fassets.rbl.ms%2F9360751%2F210x.jpg/2000%2C2000/snOYTY4iiRXqcQPg/img.jpg"},
+  {"id": "Dan Primack", "publication": "Axios", "img_url": "https://www.axios.com/static/img/whitelabel/axios/team/DanPrimack.jpg"},
+  {"id": "Sara Fischer", "publication": "Axios", "img_url": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/4/000/17e/3fc/301750e.jpg"}
+]
+
+data.each do |object|
+  path = "./public/mugshots/#{object[:id]}.png"
+
+  open(path, 'wb') do |file|
+    file << open(object[:img_url]).read
+  end
+end
+
+# open('test.png', 'wb') do |file|
+#   file << open('http://s3-origin-images.politico.com/2014/02/25/annaheadshot_288.jpg').read
+# end

@@ -103,19 +103,19 @@ setTimeout(() => {
     steps: [
       {intro: "<div style='font-size:15px;'><h3><b>Journalist Graph</b></h3>This visualization depicts relationships between journalists.<br><br>It's a work in progress, so please send me feedback at <b>tomerbovadia@gmail.com</b>. <br><br>May I take you on a tour?<br><br><i>-Tomer Ovadia</i><br><br></div>"},
       {
-        intro: '<b>Large circles</b> are media outlets.',
+        intro: '<b>Large circles</b> are <b>media outlets</b>.',
         element: document.querySelector('#PoliticoPublication')
       },
       {
-        intro: 'Small circles are journalists.',
+        intro: '<b>Small circles</b> are <b>journalists</b>.',
         element: document.querySelector('#GlennThrushNode')
       },
       {
-        intro: 'Thick, short lines connect journalists to their <i>current</i> media outlets.',
+        intro: '<b>Thick, short lines</b> connect journalists to their <b><i>current</i> media outlets</b>.',
         element: document.querySelector('#JakeShermanPoliticoLink')
       },
       {
-        intro: 'Thin, long lines connect journalists to their <i>former</i> media outlets.',
+        intro: '<b>Thin, long lines</b> connect journalists to their <b><i>former</i> media outlets</b>.',
         element: document.querySelector('#JamesHohmannPoliticoLink')
       },
       {intro: "That should be enough to get you started. Enjoy!"},
