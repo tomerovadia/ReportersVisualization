@@ -7,7 +7,7 @@ export const appendPublications = (svg, visualization, data, width, height) => {
       .append('g')
       .attr('id', (d) => d.id)
       .classed('publication', true)
-      .attr('id', (d) => d.id)
+      .attr('id', (d) => `${d.id}Publication`)
       .attr('transform', 'translate(' + height*(-2/5) + ',' + width*(-2/5) + ')');
       // .attr('fx', 2500)
       // .attr('fy', 2500)
@@ -17,13 +17,13 @@ export const appendPublications = (svg, visualization, data, width, height) => {
       //   return `translate(${(i+3)**5}, 250)`;
       // })
 
+  prepareCircleImages(svg, data);
   appendCirclesToPublications(publications);
   appendTextToPublications(publications);
-  prepareCircleImages(svg, data);
 
-  d3.select('#Politico')
-      .attr('data-intro', 'Large circles are publications.')
-      .attr('data-step', 1);
+  // d3.select('#PoliticoPublication')
+  //     .attr('data-intro', 'Large circles are publications.')
+  //     .attr('data-step', 1);
 
   return publications;
 }
@@ -34,14 +34,15 @@ const appendCirclesToPublications = (publications) => {
       .style('fill', (d) => d.color)
       .attr('r', 30)
       .style('stroke', 'black')
-      .style('stroke-width', 2);
+      .style('stroke-width', 2)
+      .attr("fill", function(d){ return `url('#${d.id}')` } );
 }
 
 const appendTextToPublications = (publications) => {
   return publications.append('text')
       .text((d) => d.id)
       .style('font-family', 'Arial')
-      .style("font-size", "11px")
+      .style("font-size", "9px")
       .style("fill", (d) => d.textColor || "white")
       .attr("text-anchor", "middle")
       .style("font-weight", "600")
@@ -53,7 +54,7 @@ const prepareCircleImages = (svg, data) => {
 
   const patterns = defs
       .selectAll('pattern')
-      .data(data.reporters)
+      .data(data.reporters.concat(data.publications))
       .enter()
       .append("pattern")
         .attr("id", function(d){ return d.id } )

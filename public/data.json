@@ -139,9 +139,9 @@
     {"reporter": "Sara Fischer", "publication": "Politico"}
   ],
   "publications": [
-    {"id": "Politico", "color": "darkred"},
-    {"id": "New York Times", "color": "gray"},
-    {"id": "Washington Post", "color": "darkblue"},
+    {"id": "Politico", "color": "darkred", "img_url": "http://pbs.twimg.com/profile_images/677177503694237697/y6yTzWn6_reasonably_small.png"},
+    {"id": "New York Times", "color": "gray", "img_url": "https://upload.wikimedia.org/wikipedia/commons/4/40/New_York_Times_logo_variation.jpg"},
+    {"id": "Washington Post", "color": "darkblue", "img_url": "http://ccn.upenn.edu/chatterjee/relevantphotos/washingtonpost.png"},
     {"id": "Buzzfeed", "color": "yellow", "textColor": "red", "textShadowColor": "white"},
     {"id": "Reuters", "color": "#333333", "textColor": "#fe8100"},
     {"id": "National Journal", "color": "#8d734a"},
@@ -157,12 +157,12 @@
     {"id": "The Hill", "color": "#2a53c1"},
     {"id": "Los Angeles Times", "color": "black"},
     {"id": "NBC", "color": "#ce1041"},
-    {"id": "San Francisco Chronicle"},
+    {"id": "San Francisco Chronicle", "color": "black"},
     {"id": "Bloomberg", "color": "#2b00f7"},
     {"id": "Time", "color": "#e61600"},
     {"id": "San Jose Mercury News", "color": "#3a6496"},
     {"id": "Newsday", "color": "#0084bf"},
-    {"id": "Axios", "textColor": "#008dc8"},
-    {"id": "Fortune", "textColor": "#ec412e"}
+    {"id": "Axios", "textColor": "#008dc8", "color": "black"},
+    {"id": "Fortune", "textColor": "#ec412e", "color": "black"}
   ]
 }

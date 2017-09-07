@@ -94,5 +94,29 @@ function zoomed() {
 renderGraph(svg, container, width, height);
 
 setTimeout(() => {
-  introJs.introJs().setOption({exitOnOverlayClick: true}).start();
-}, 7500)
+  introJs.introJs().setOptions({
+    exitOnOverlayClick: true,
+    showStepNumbers: false,
+    showProgress: true,
+    steps: [
+      {intro: "<div style='font-size:15px;'><h3><b>Journalist Graph</b></h3>This visualization depicts relationships between journalists.<br><br>It's a work in progress, so please send me feedback at <b>tomerbovadia@gmail.com</b>. <br><br>May I take you on a tour?<br><br><i>-Tomer Ovadia</i><br><br></div>"},
+      {
+        intro: '<b>Large circles</b> are publications.',
+        element: document.querySelector('#PoliticoPublication')
+      },
+      {
+        intro: 'Small circles are journalists.',
+        element: document.querySelector('#GlennThrushNode')
+      },
+      {
+        intro: 'Thick, short lines connect journalists to their current publications.',
+        element: document.querySelector('#JakeShermanPoliticoLink')
+      },
+      {
+        intro: 'Thin, long lines connect journalists to their former publications.',
+        element: document.querySelector('#JamesHohmannPoliticoLink')
+      },
+      {intro: "That should be enough to get you started. Enjoy!"},
+    ]
+  }).start();
+}, 3000)

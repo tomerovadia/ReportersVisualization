@@ -1,0 +1,40 @@
+
+h3 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+
+
+/* Intro */
+
+.introjs-tooltiptext {
+  font-family: 'Roboto';
+  text-align: center;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 300;
+  width: 300px;
+}
+/*
+#intro-modal-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.7);
+  z-index: 10000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#intro-modal-box {
+  height: 100px;
+  width: 100px;
+  background-color: white;
+  z-index: 10000001;
+  border-radius: 3px;
+  border: 2px solid gray;
+}*/

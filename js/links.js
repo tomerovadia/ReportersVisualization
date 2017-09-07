@@ -17,13 +17,13 @@ export const appendLinks = (visualization, linkData) => {
         return `${d.source.split(' ').join('')}${d.target.split(' ').join('')}Link`;
       });
 
-    d3.select('#JakeShermanPoliticoLink')
-      .attr('data-intro', 'Thick, short lines connect journalists to their current publications.')
-      .attr('data-step', 3);
-
-    d3.select('#JamesHohmannPoliticoLink')
-      .attr('data-intro', 'Thin, long lines connect journalists to their former publications.')
-      .attr('data-step', 4);
+    // d3.select('#JakeShermanPoliticoLink')
+    //   .attr('data-intro', 'Thick, short lines connect journalists to their current publications.')
+    //   .attr('data-step', 3);
+    //
+    // d3.select('#JamesHohmannPoliticoLink')
+    //   .attr('data-intro', 'Thin, long lines connect journalists to their former publications.')
+    //   .attr('data-step', 4);
 
     return links;
 }
