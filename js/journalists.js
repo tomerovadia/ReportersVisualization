@@ -39,7 +39,7 @@ const appendCircles = (nodes, publicationColors) => {
       .append("circle")
         .attr("r", 10)
         .style("stroke", function(d) { return publicationColors[d.publication]; })
-        .style("stroke-width", 2)
+        .style("stroke-width", 1.5)
         .attr("fill", function(d){ return `url('#${d.id}')` } );
 }
 

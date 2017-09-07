@@ -34,7 +34,7 @@ const createCurrentEmploymentLinks = (reporters, publicationColors) => {
     return {
       source: reporter.id,
       target: reporter.publication,
-      value: 50,
+      value: 30,
       color: publicationColors[reporter.publication],
       current: true,
     };
@@ -47,7 +47,7 @@ const createPreviousEmploymentsLinks = (employments, publicationColors) => {
     return {
       source: employment.reporter,
       target: employment.publication,
-      value: 150,
+      value: 80,
       color: publicationColors[employment.publication],
       current: false,
     };

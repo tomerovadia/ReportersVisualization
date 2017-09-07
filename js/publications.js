@@ -32,7 +32,7 @@ const appendCirclesToPublications = (publications) => {
   return publications
       .append('circle')
       .style('fill', (d) => d.color)
-      .attr('r', 50)
+      .attr('r', 30)
       .style('stroke', 'black')
       .style('stroke-width', 2);
 }

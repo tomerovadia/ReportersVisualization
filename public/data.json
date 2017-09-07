@@ -130,13 +130,13 @@
     {"reporter": "Karen Tumulty", "publication": "Time"},
     {"reporter": "Ariana Cha", "publication": "San Jose Mercury News"},
     {"reporter": "Missy Ryan", "publication": "Reuters"},
-    {"reporter": "Dan Balz", "publication": "National Journal"},
     {"reporter": "Glenn Kessler", "publication": "Newsday"},
     {"reporter": "Mike Allen", "publication": "Politico"},
     {"reporter": "Mike Allen", "publication": "Time"},
     {"reporter": "David Nather", "publication": "Politico"},
     {"reporter": "Sara Fischer", "publication": "CNN"},
-    {"reporter": "Dan Primack", "publication": "Fortune"}
+    {"reporter": "Dan Primack", "publication": "Fortune"},
+    {"reporter": "Sara Fischer", "publication": "Politico"}
   ],
   "publications": [
     {"id": "Politico", "color": "darkred"},

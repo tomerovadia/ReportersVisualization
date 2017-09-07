@@ -95,4 +95,4 @@ renderGraph(svg, container, width, height);
 
 setTimeout(() => {
   introJs.introJs().setOption({exitOnOverlayClick: true}).start();
-}, 5000)
+}, 7500)
