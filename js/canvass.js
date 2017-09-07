@@ -94,5 +94,5 @@ function zoomed() {
 renderGraph(svg, container, width, height);
 
 setTimeout(() => {
-  introJs.introJs().start();
-}, 5500)
+  introJs.introJs().setOption({exitOnOverlayClick: true}).start();
+}, 5000)

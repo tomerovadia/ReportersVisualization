@@ -55,5 +55,5 @@ const createPreviousEmploymentsLinks = (employments, publicationColors) => {
 }
 
 const calculateStrokeWidth = () => (d) => {
-  return d.value > 60 ? 0.8 : 2.3;
+  return d.value > 60 ? 0.8 : 3;
 }
