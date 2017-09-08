@@ -101,7 +101,7 @@ setTimeout(() => {
     hideNext: true,
     hidePrev: true,
     steps: [
-      {intro: "<div style='font-size:15px;'><h3><b>Journalist Graph</b></h3>This visualization depicts relationships between journalists.<br><br>It's a work in progress, so please send me feedback at <b>tomerbovadia@gmail.com</b>. <br><br>May I take you on a tour?<br><br><i>-Tomer Ovadia</i><br><br></div>"},
+      {intro: "<div style='font-size:15px;'><h3><b>Journalist Graph</b></h3>This visualization depicts relationships between journalists and media outlets. See <b><a target='_blank' href='https://medium.com/questions-on-the-future-of-media/56-what-is-the-interplay-between-the-brand-of-a-journalist-and-that-of-a-media-institution-fe31628b8af2'>my blog post</a></b> on this concept.<br><br>This is a work in progress, so please send me feedback at <b>tomerbovadia@gmail.com</b>. <br><br>May I take you on a tour?<br><br><i>-Tomer Ovadia</i><br><br></div>"},
       {
         intro: '<b>Large circles</b> are <b>media outlets</b>.',
         element: document.querySelector('#PoliticoPublication')
