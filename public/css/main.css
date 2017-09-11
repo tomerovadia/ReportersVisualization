@@ -5,6 +5,16 @@ h3 {
 }
 
 
+/* D3 Elements */
+
+.solid {
+   stroke:solid;
+}
+
+.dashed {
+   stroke-dasharray: 5,2;
+}
+
 
 /* Intro */
 

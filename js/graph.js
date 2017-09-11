@@ -89,7 +89,6 @@ export default (svg, container, width, height) => {
   }
 
   function nodedragged(d) {
-    console.log('nodedragged')
     d.fx = d3.event.x;
     d.fy = d3.event.y;
   }

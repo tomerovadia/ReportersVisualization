@@ -11,7 +11,8 @@ export const appendLinks = (visualization, linkData) => {
     .selectAll("line")
     .data(linkData)
     .enter().append("line")
-      .attr("stroke-width", calculateStrokeWidth())
+      .attr("stroke-width", calculateStrokeWidth)
+      .attr('class', calculateStrokeType)
       .style("stroke", (d) => d.color)
       .attr('id', (d) => {
         return `${d.source.split(' ').join('')}${d.target.split(' ').join('')}Link`;
@@ -46,6 +47,10 @@ const createPreviousEmploymentsLinks = (employments, publicationColors) => {
   })
 }
 
-const calculateStrokeWidth = () => (d) => {
-  return d.value > 60 ? 0.8 : 3;
+const calculateStrokeWidth = (d) => {
+  return d.value > 60 ? 1.5 : 3;
+}
+
+const calculateStrokeType = (d) => {
+  return d.value > 60 ? 'dashed' : 'solid';
 }
